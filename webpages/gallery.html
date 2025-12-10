@@ -5,12 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NHRC - Objectives</title>
-  <meta name="description" content="Objectives and goals of the Nepal Health Research Council.">
+  <title>NHRC - Media Gallery</title>
+  <meta name="description" content="Media gallery of NHRC events and initiatives.">
   <link rel="stylesheet" href="c1.css">
   <link rel="stylesheet" href="print.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
-  <script src="c1.js" defer></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.css">
+  <style>
+    #galleria {
+      height: 600px;
+    }
+    .gallery-header {
+      margin: 20px 0 10px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.js"></script>
 </head>
 
 <body>
@@ -22,9 +34,7 @@
   <header class="header" role="banner">
     <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
       <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
-        <div>
-          <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
-        </div>
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
       </a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
         onclick="toggleMenu()">☰</button>
@@ -43,6 +53,7 @@
       </ul>
     </nav>
 
+    <!-- Mega Menu -->
     <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
       <div class="mega-menu-container">
         <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
@@ -162,82 +173,34 @@
     </div>
   </header>
 
-  <main id="main-content" role="main" aria-label="Objectives content">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+  <main id="main-content" role="main" aria-label="Media gallery">
+    <section class="section">
       <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Our Objectives</h2>
-          <p>Clear, measurable goals that guide NHRC’s mission to advance health research, ethics, and innovation across Nepal.</p>
-          <a href="#goals" class="btn-primary">View Goals</a>
+        <div class="section-header gallery-header">
+          <h2 class="section-title">Media Gallery</h2>
+          <a href="#" class="view-all-btn">Download All</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="goals" role="region" aria-labelledby="goals-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="goals-title">Key Goals & Objectives</h2>
-          <a href="#" class="view-all-btn">Download Charter</a>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Advance Evidence-Based Policy</h3>
-              <p class="card-text">Generate and synthesize research evidence that informs national health policy and program design.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Strengthen Research Ethics</h3>
-              <p class="card-text">Ensure all health research aligns with international ethical standards and protects participant rights.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Build Research Capacity</h3>
-              <p class="card-text">Provide training, mentorship, and resources to cultivate skilled researchers across Nepal.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Foster Innovation</h3>
-              <p class="card-text">Promote adoption of digital health tools and emerging technologies to improve care delivery.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Expand Collaboration</h3>
-              <p class="card-text">Partner with academia, industry, and communities to co-create impactful health solutions.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Enhance Data Stewardship</h3>
-              <p class="card-text">Improve data quality, security, and accessibility to accelerate research and public health response.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="commitments-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="commitments-title">Our Commitments</h2>
-        </div>
-        <div class="noticeboard-list">
-          <div class="notice-item">
-            <div class="notice-date">2025</div>
-            <div class="notice-content">Launch national registry for clinical studies ensuring transparent reporting.</div>
-          </div>
-          <div class="notice-item">
-            <div class="notice-date">2025</div>
-            <div class="notice-content">Publish annual ethics review performance dashboard for public accountability.</div>
-          </div>
-          <div class="notice-item">
-            <div class="notice-date">2026</div>
-            <div class="notice-content">Train 500+ practitioners on research methods and ethical conduct.</div>
-          </div>
+        <div id="galleria" class="galleria">
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg" data-title="Annual Event"
+              data-description="NHRC banner" alt="NHRC annual event">
+          </a>
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg" data-title="Summit"
+              data-description="Summit banner" alt="Summit banner">
+          </a>
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg" data-title="Program"
+              data-description="Program banner" alt="Program banner">
+          </a>
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg" data-title="Initiative"
+              data-description="Initiative banner" alt="Initiative banner">
+          </a>
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg" data-title="Health Research"
+              data-description="Health research banner" alt="Health research banner">
+          </a>
         </div>
       </div>
     </section>
@@ -262,10 +225,10 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="research.html">Research</a></li>
-            <li><a href="news-listing.html">News</a></li>
-            <li><a href="activities.html">Activities</a></li>
-            <li><a href="members.html">Members</a></li>
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -296,6 +259,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      Galleria.configure({
+        transition: "fade",
+        imageCrop: false,
+        lightbox: true,
+        responsive: true,
+        showInfo: true,
+        height: 600,
+      });
+      Galleria.run('#galleria');
+    })();
+  </script>
 </body>
 
 </html>
