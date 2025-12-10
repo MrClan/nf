@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>NHRC Web Frontend Revamp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
+  <style>
+    figure {
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .2);
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    ul {
+      margin: 8px 0 0 18px;
+    }
+
+    .reveal .slides section {
+      overflow-y: auto !important;
+      max-height: 100% !important;
+    }
+
+    .reveal {
+      font-size: 22px;
+      /* default ~36px; adjust this value */
+    }
+
+    .reveal h1 {
+      font-size: 1.8em;
+    }
+
+    .reveal h2 {
+      font-size: 1.4em;
+    }
+
+    .reveal h3 {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h2>NHRC Web Frontend Revamp</h2>
+        <p></p>
+      </section>
+
+
+      <section>
+        <h3>Why revamp? (12 major reasons)</h3>
+        <ol>
+          <li class="fragment">Modernization (with latest technologies and trends)</li>
+          <li class="fragment">Current version is outdated and cluttered with issues (mentioned in later slides)</li>
+          <li class="fragment">Make usable on all devices - desktop and phones</li>
+          <li class="fragment">Improved user experience</li>
+          <li class="fragment">Support multi-language content(extendable to any number of languages)</li>
+          <li class="fragment">Easier and streamlined content management</li>
+          <li class="fragment">RBAC: Multi-level editors - for respective content type(newseditor, noticeeditor, admin)</li>
+          <li class="fragment">Content Review Flow</li>
+          <li class="fragment">Automatic content archival</li>
+          <li class="fragment">End user bandwidth savings</li>
+          <li class="fragment">Better performance</li>
+          <li class="fragment">Robust Security</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h3>Built for Everyone, Everywhere</h2>
+        <h4>Modern in spirit, classic in foundation</h4>
+        <ol>
+          <li class="fragment">✅ Puts content first – Lightweight, fast-loading pages that focus on information, not flashy effects</li>
+          <li class="fragment">✅ Designed for everyone – Clear typography, high contrast, and intuitive layouts for all users</li>          
+          <li class="fragment">✅ Respects all users – Works on any device, from smartphones to legacy phones like Nokia S40</li>
+          <li class="fragment">✅ Prioritizes accessibility – Built with semantic HTML, keyboard navigation, and screen reader support</li>
+          <li class="fragment">✅ Embraces simplicity – No JavaScript bloat, no broken experiences when features fail</li>
+          <li class="fragment">✅ Enhances progressively – Modern features (animations, dark mode) are added only if supported</li>
+          <li class="fragment">✅ Ensures reliability – Fast, secure, and always available — critical for public services</li>
+          <li class="fragment">✅ Balances innovation & inclusion – Feels contemporary, but never excludes those with older tech or disabilities</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h3>Issues in current version</h2>
+        <h4>Addressing Critical UX, Performance & Trust Issues</h4>
+        <ol>
+          <li class="fragment">Unusable on mobile phones - UI breaks, several menus inaccssible on small screens</li>
+          <li class="fragment">Outdated & inaccessible features — not screen-reader friendly, hard to read</li>
+          <li class="fragment">Unoptimized media - Serves large, high-resolution images to all devices — slows load times, wastes data, especially on mobile</li>          
+          <li class="fragment">Poor visual hierarchy - Critical notices hidden in collapsible accordions — reduces visibility and delays access to urgent information</li>
+          <li class="fragment">Non-responsive image handling - Images stretched or pixelated — undermines credibility and appears unprofessional on mobile</li>
+          <li class="fragment">Hard to maintain, extend, or audit — increases long-term risk and cost</li>
+          <li class="fragment">Uncertain backend security & maintenance - WordPress setup with unknown plugin origins, no clear update policy, and potential vulnerabilities</li>
+          <li class="fragment">Slow performance</li>
+        </ol>
+        <p>&nbsp;</p>
+
+        <p class="fragment">This isn’t just a redesign — it’s a necessary upgrade to meet public expectations for speed, accessibility, and trust.</p>
+      </section>
+
+
+      <section>
+        <h4>Lighthouse score</h4>
+        <div class="comparison1">
+          <figure>
+            <img src="imgs/nhrc-lighthouse-score2.png" alt="lighthouse score of current version">
+        </div>
+      </section>
+
+      <section>
+        <h4>Lighthouse Comparison</h4>
+        <div class="comparison">
+          <figure>
+            <img src="imgs/nhrc-new-lighthouse-score.png" alt="NHRC New Lighthouse Score">
+            <figcaption>NHRC New Lighthouse Score</figcaption>
+          </figure>
+          <figure>
+            <img src="imgs/nhrc-lighthouse-score2.png" alt="Image B2">
+            <figcaption>NHRC Current Lighthouse Score</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <h4>NHRC Current Console Status</h4>
+        <div class="comparison1">
+          <figure>
+            <img src="imgs/nhrc-console-bugs.png" alt="NHRC New Lighthouse Score">
+            <p>On a public health site, every error is a potential barrier to critical information.
+Clean, reliable code isn’t optional — it’s a public service. </p>
+          </figure>
+          <ul>
+            <li>Harm accessibility: Screen readers and assistive tools may fail when scripts crash</li>
+            <li>Break functionality: Even minor JS errors can disable forms, buttons, or navigation for users</li>
+            <li>Damage trust: A broken experience makes the site feel unprofessional or unsafe</li>
+            <li>Indicate deeper issues: Uncaught errors suggest poor testing, weak error handling, or security risks</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section>
+        <h4>Any Questions & Feedbacks?</h4>
+        <h2>Thank You.</h2>
+        <p></p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'slide',
+      minScale: 0.2,   // allow shrinking down
+      maxScale: 1.5    // allow zooming if window is big
+    });
+  </script>
+
+</body>
+
+</html>

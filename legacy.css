@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 2;
+  margin: 12px;
+  padding: 0;
+}
+
+#header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+  text-align: left;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #095d68;
+  display: inline;
+  margin-left: 20px;
+}
+
+#logo a {
+  color: #095d68;
+  text-decoration: none;
+}
+
+#nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  margin-left: 40px;
+}
+
+#nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+#nav a {
+  padding: 12px;
+  margin: 12px;
+  color: #666;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#nav a:hover {
+  color: #095d68;
+}
+
+#hero {
+  background: #f0f0f0;
+  color: #222;
+  text-align: center;
+  padding: 40px 10px 30px 10px;
+}
+
+#hero h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+#hero p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #095d68;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.section {
+  padding: 25px 10px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.section h2 {
+  font-size: 22px;
+  color: #095d68;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+#footer {
+  background: #333;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+#footer a {
+  color: #afe8f0;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}

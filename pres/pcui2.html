@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click & Win - Discovery Feed Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #image-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { #image-grid { column-count: 2; } }
+        @media (min-width: 1024px) { #image-grid { column-count: 3; } }
+        @media (min-width: 1280px) { #image-grid { column-count: 4; } }
+        
+        .grid-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .modal-open {
+            overflow: hidden;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        #slidable-comments {
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+            max-height: 50%;
+        }
+        #image-modal.comments-visible #slidable-comments {
+            transform: translateY(0);
+        }
+        #comment-handle .chevron-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        #image-modal.comments-visible #comment-handle .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+    </style>
+</head>
+<body class="bg-[#121212] text-white">
+
+    <!-- Responsive Navigation Bar -->
+    <nav class="sticky top-0 z-20 bg-[#181818]/80 backdrop-blur-lg border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold tracking-tight" style="color: #00A9FF;">Click & Win</a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Discover</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Competitions</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Learn</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">Community</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:flex items-center space-x-5">
+                         <button id="search-icon" class="text-gray-300 hover:text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                         </button>
+                         <a href="#" class="bg-[#00A9FF] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Create</a>
+                         <a href="#" class="text-gray-300 hover:text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                         </a>
+                         <div class="relative">
+                            <button id="profile-menu-button" class="flex items-center group focus:outline-none">
+                                <img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/100" alt="User profile">
+                                <span class="ml-2 text-sm font-medium text-gray-300 group-hover:text-white">Profile</span>
+                            </button>
+                            <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-[#282828] rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 z-30">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700/50">My Profile</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700/50">My Submissions</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700/50">Earnings</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700/50">Account Settings</a>
+                                <div class="border-t border-gray-700/50 my-1"></div>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700/50">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                         <button id="mobile-search-icon" class="text-gray-300 hover:text-white mr-4">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                         </button>
+                        <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Discover</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Competitions</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Learn</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Community</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
+                <a href="#" class="bg-[#00A9FF] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-opacity-90 transition mt-2">Create Competition</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="promo-banner" class="bg-gradient-to-r from-[#00A9FF] to-[#0077B6] text-white p-4 text-center relative">
+        <div class="container mx-auto">
+            <h2 class="text-lg md:text-xl font-bold">Turn Your Passion into Profit</h2>
+            <p class="text-sm md:text-base mt-1">Join competitions, build your community, and start monetizing your photography hobby today.</p>
+            <a href="#" class="inline-block bg-white text-[#0077B6] px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition mt-3">Sign Up</a>
+        </div>
+        <button id="close-banner-button" class="absolute top-1/2 -translate-y-1/2 right-4 text-white hover:text-gray-200" aria-label="Dismiss banner">
+             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+    </section>
+    
+    <main class="p-4">
+        <div id="image-grid"></div>
+    </main>
+
+    <div id="sentinel" class="h-10"></div>
+
+    <template id="grid-item-template">
+        <article class="grid-item group relative cursor-pointer overflow-hidden rounded-lg shadow-lg" data-likes="0">
+            <img class="main-img w-full h-auto block bg-[#181818]" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="User-submitted photography">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 w-full p-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <a href="#" class="flex items-center group/user" aria-label="View photographer profile">
+                    <img class="user-avatar w-8 h-8 rounded-full object-cover mr-3 border-2 border-transparent group-hover/user/border-white transition" src="" alt="Photographer profile picture">
+                    <span class="user-name font-bold text-sm text-white drop-shadow-md">Username</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <button class="like-button focus:outline-none transform hover:scale-110 transition-transform flex items-center space-x-1" aria-label="Like photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white hover:fill-red-500 hover:stroke-red-500 transition-colors"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <span class="like-count text-sm text-white"></span>
+                    </button>
+                    <button class="comment-button focus:outline-none transform hover:scale-110 transition-transform" aria-label="Comment on photo">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-white"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <div id="image-modal" class="hidden fixed inset-0 bg-black/80 z-40 flex items-center justify-center p-4">
+        <div class="relative bg-[#181818] rounded-lg shadow-xl w-full max-w-lg h-full max-h-[90vh] flex flex-col overflow-hidden">
+            <button id="close-image-modal" class="absolute top-3 right-3 text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/75 z-50">&times;</button>
+            <!-- FIX: Changed object-cover to object-contain -->
+            <img id="modal-image" src="" class="absolute top-0 left-0 w-full h-full object-contain" alt="Enlarged view">
+            
+            <div class="absolute bottom-0 left-0 w-full h-full flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none">
+                <div class="w-full pointer-events-auto flex flex-col">
+                    <div class="flex-grow"></div>
+                    
+                    <div id="slidable-comments" class="w-full flex flex-col">
+                        <div class="min-h-0 flex flex-col bg-black/50 backdrop-blur-sm">
+                            <div id="comments-list" class="flex-grow p-4 overflow-y-auto hide-scrollbar"></div>
+                            <div class="p-4 border-t border-gray-700/50">
+                                <div class="flex items-start space-x-3">
+                                    <img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/100" alt="Your profile">
+                                    <div class="flex-1 min-w-0">
+                                        <textarea id="comment-input" class="w-full bg-[#181818] text-white placeholder-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#00A9FF]" rows="1" placeholder="Add a comment..."></textarea>
+                                        <button id="post-comment-button" class="mt-2 bg-[#00A9FF] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Post</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="comment-handle" class="p-4 cursor-pointer w-full bg-black/20 backdrop-blur-sm">
+                        <a href="#" class="flex items-center">
+                            <img id="modal-user-avatar" class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-white/50" src="" alt="Photographer profile picture">
+                            <span id="modal-user-name" class="font-bold text-white drop-shadow-lg"></span>
+                        </a>
+                        <div class="flex items-center justify-between text-white mt-2">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-lg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <span id="modal-like-count" class="font-semibold drop-shadow-lg"></span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-gray-300">
+                                <span id="comment-toggle-text">View comments</span>
+                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="search-overlay" class="hidden fixed inset-0 bg-[#121212]/95 z-50 flex flex-col items-center p-4 backdrop-blur-md">
+        <button id="close-search-overlay" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+        <div class="w-full max-w-2xl mt-20">
+            <input type="search" id="search-input" placeholder="Search for photos, keywords, or users..." class="w-full bg-transparent border-b-2 border-gray-500 text-2xl md:text-4xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00A9FF] py-4">
+            <div id="search-results" class="mt-8"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageGrid = document.getElementById('image-grid');
+            const sentinel = document.getElementById('sentinel');
+            const template = document.getElementById('grid-item-template');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const profileMenuButton = document.getElementById('profile-menu-button');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            const promoBanner = document.getElementById('promo-banner');
+            const closeBannerButton = document.getElementById('close-banner-button');
+            const imageModal = document.getElementById('image-modal');
+            const closeImageModalButton = document.getElementById('close-image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalUserAvatar = document.getElementById('modal-user-avatar');
+            const modalUserName = document.getElementById('modal-user-name');
+            const modalLikeCount = document.getElementById('modal-like-count');
+            const commentHandle = document.getElementById('comment-handle');
+            const commentsList = document.getElementById('comments-list');
+            const commentInput = document.getElementById('comment-input');
+            const postCommentButton = document.getElementById('post-comment-button');
+            const searchIcon = document.getElementById('search-icon');
+            const mobileSearchIcon = document.getElementById('mobile-search-icon');
+            const searchOverlay = document.getElementById('search-overlay');
+            const closeSearchOverlay = document.getElementById('close-search-overlay');
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
+            const commentToggleText = document.getElementById('comment-toggle-text');
+
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            closeBannerButton.addEventListener('click', () => promoBanner.classList.add('hidden'));
+            
+            profileMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                profileDropdown.classList.toggle('hidden');
+            });
+            window.addEventListener('click', () => {
+                if (!profileDropdown.classList.contains('hidden')) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+             postCommentButton.addEventListener('click', () => {
+                if (commentInput.value.trim() === '') return;
+                const newCommentHTML = `<div class="flex items-start space-x-3 mb-4"><img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/100" alt="Your profile"><div class="flex-1"><p class="text-sm"><strong class="font-medium text-white">You</strong> <span class="text-gray-400">${commentInput.value}</span></p><span class="text-xs text-gray-500">Just now</span></div></div>`;
+                commentsList.insertAdjacentHTML('beforeend', newCommentHTML);
+                commentInput.value = '';
+                commentsList.scrollTop = commentsList.scrollHeight; 
+                commentInput.focus();
+            });
+
+            const openSearch = () => {
+                searchOverlay.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+                searchInput.focus();
+            };
+            const closeSearch = () => {
+                searchOverlay.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+                searchInput.value = '';
+                searchResults.innerHTML = '';
+            };
+            searchIcon.addEventListener('click', openSearch);
+            mobileSearchIcon.addEventListener('click', openSearch);
+            closeSearchOverlay.addEventListener('click', closeSearch);
+            
+            searchInput.addEventListener('input', () => {
+                if (searchInput.value.length > 2) {
+                    displaySearchResults(searchInput.value);
+                } else {
+                    searchResults.innerHTML = '';
+                }
+            });
+
+            function displaySearchResults(query) {
+                searchResults.innerHTML = `<p class="text-gray-400 mb-4">Showing results for "${query}"</p><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${[1,2,3,4].map(i => `<div class="bg-gray-800 rounded-lg overflow-hidden"><img src="https://picsum.photos/300/300?random=${i}" class="w-full h-auto" /><p class="p-2 text-sm">Sample Image ${i}</p></div>`).join('')}</div>`;
+            }
+
+            function openImageModal(gridItem) {
+                const imageSrc = gridItem.querySelector('.main-img').src;
+                const userAvatarSrc = gridItem.querySelector('.user-avatar').src;
+                const userName = gridItem.querySelector('.user-name').textContent;
+                const likes = gridItem.dataset.likes;
+                
+                modalImage.src = imageSrc;
+                modalUserAvatar.src = userAvatarSrc;
+                modalUserName.textContent = userName;
+                modalLikeCount.textContent = `${likes} likes`;
+                
+                imageModal.classList.remove('comments-visible'); 
+                commentToggleText.textContent = 'View comments';
+                generateDummyComments();
+                imageModal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            }
+
+            function closeImageModal() {
+                imageModal.classList.add('hidden');
+                if (!searchOverlay.classList.contains('hidden')) return;
+                document.body.classList.remove('modal-open');
+            }
+            
+            function toggleComments() {
+                 imageModal.classList.toggle('comments-visible');
+                 if (imageModal.classList.contains('comments-visible')) {
+                    commentToggleText.textContent = 'Hide comments';
+                 } else {
+                    commentToggleText.textContent = 'View comments';
+                 }
+            }
+
+            commentHandle.addEventListener('click', toggleComments);
+            
+            imageGrid.addEventListener('click', (event) => {
+                const gridItem = event.target.closest('.grid-item');
+                if (gridItem && !event.target.closest('a, .like-button')) {
+                    openImageModal(gridItem);
+                }
+            });
+
+            closeImageModalButton.addEventListener('click', closeImageModal);
+            imageModal.addEventListener('click', (event) => {
+                if (event.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+
+            function generateDummyComments() {
+                commentsList.innerHTML = ''; 
+                const commentCount = Math.floor(Math.random() * 5) + 1;
+                for (let i = 0; i < commentCount; i++) {
+                    commentsList.innerHTML += `<div class="flex items-start space-x-3 mb-4 text-white"><img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/40?u=${Math.random()}" alt="Commenter profile"><div class="flex-1"><p class="text-sm"><strong class="font-medium">some_user_${i}</strong> <span class="text-gray-300">This is a great shot!</span></p><span class="text-xs text-gray-400">${i+2}h ago</span></div></div>`;
+                }
+            }
+
+            let loading = false;
+            const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        if (src) {
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '0px 0px 200px 0px' });
+
+            async function loadMoreImages() {
+                if (loading) return;
+                loading = true;
+                await new Promise(resolve => setTimeout(resolve, 500));
+                for (let i = 0; i < 10; i++) {
+                    const clone = template.content.cloneNode(true);
+                    const gridItem = clone.querySelector('.grid-item');
+                    const img = gridItem.querySelector('.main-img');
+                    const userAvatar = gridItem.querySelector('.user-avatar');
+                    const userName = gridItem.querySelector('.user-name');
+                    const likeCountSpan = gridItem.querySelector('.like-count');
+                    
+                    const randomWidth = 400 + Math.floor(Math.random() * 200);
+                    const randomHeight = 300 + Math.floor(Math.random() * 400);
+                    const imageUrl = `https://picsum.photos/${randomWidth}/${randomHeight}?random=${Date.now() + i}`;
+                    const likes = Math.floor(Math.random() * 1000);
+
+                    gridItem.dataset.likes = likes;
+                    img.setAttribute('data-src', imageUrl);
+                    userAvatar.src = `https://i.pravatar.cc/40?u=${Date.now() + i}`;
+                    userName.textContent = `user_${Math.floor(Math.random() * 1000)}`;
+                    likeCountSpan.textContent = likes;
+
+                    imageGrid.appendChild(clone);
+                    lazyLoadObserver.observe(img);
+                }
+                loading = false;
+            }
+
+            const infiniteScrollObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    loadMoreImages();
+                }
+            });
+            infiniteScrollObserver.observe(sentinel);
+            loadMoreImages();
+        });
+    </script>
+</body>
+</html>
+
+

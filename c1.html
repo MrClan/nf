@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Nepal Health Research Council</title>
+  <meta name="description"
+    content="Leading government organization committed to improving public health and advancing scientific knowledge through research initiatives and community programs.">
+
+
+
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.js"></script>
+  <style>
+    #galleria {
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip Links for Screen Readers -->
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="#" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div>
+          <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+          <!-- <img src="images/logo-gon.png" alt="Government of Nepal" class="logo-image">
+          <img src="images/nepal_flag.gif" alt="flag of Nepal" class="logo-image"> -->
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about">Home</a></li>
+        <li><a href="#about">COVID-19</a></li>
+        <li><a href="#research">NepMed</a></li>
+        <li><a href="#news">Digital Library</a></li>
+        <li><a href="#notices">Summit</a></li>
+        <li class="discover-menu">
+          <a href="#" class="discover-toggle" onclick="toggleDiscoverMenu(event)" aria-expanded="false">
+            Discover <span class="arrow">▾</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mega Menu -->
+    <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
+      <div class="mega-menu-container">
+        <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
+        <div class="mega-menu-grid">
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              About
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">About Us</a>
+              <a href="#" class="mega-menu-item">Objectives</a>
+              <a href="#" class="mega-menu-item">Activities</a>
+              <a href="#" class="mega-menu-item">Past Presidents</a>
+              <a href="#" class="mega-menu-item">Executive Board</a>
+              <a href="#" class="mega-menu-item">Staff</a>
+            </div>
+          </div>
+
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Ethics
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">Ethics</a>
+              <a href="#" class="mega-menu-item">Ethical Review Board(FERCAP recognized since 2019)</a>
+              <a href="#" class="mega-menu-item">Insitutional Review Committee(IRC)</a>
+              <a href="#" class="mega-menu-item">Ethical Review Process</a>
+              <a href="#" class="mega-menu-item">IRERP</a>
+              <a href="#" class="mega-menu-item">FAQ</a>
+            </div>
+          </div>
+          
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Research Areas
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">Infectious Diseases</a>
+              <a href="#" class="mega-menu-item">Chronic Disease Management</a>
+              <a href="#" class="mega-menu-item">Mental Health Research</a>
+              <a href="#" class="mega-menu-item">Environmental Health</a>
+              <a href="#" class="mega-menu-item">Digital Health Technologies</a>
+              <a href="#" class="mega-menu-item">Genomics & Precision Medicine</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Publications & Data
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">Research Publications</a>
+              <a href="#" class="mega-menu-item">Annual Reports</a>
+              <a href="#" class="mega-menu-item">Data Portal</a>
+              <a href="#" class="mega-menu-item">Statistical Reports</a>
+              <a href="#" class="mega-menu-item">Policy Briefs</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Resources & Tools
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">Health Guidelines</a>
+              <a href="#" class="mega-menu-item">Clinical Tools</a>
+              <a href="#" class="mega-menu-item">Educational Materials</a>
+              <a href="#" class="mega-menu-item">Training Programs</a>
+              <a href="#" class="mega-menu-item">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Partnerships
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">Academic Collaborations</a>
+              <a href="#" class="mega-menu-item">Industry Partners</a>
+              <a href="#" class="mega-menu-item">InterNepal Cooperation</a>
+              <a href="#" class="mega-menu-item">Community Organizations</a>
+              <a href="#" class="mega-menu-item">Grant Opportunities</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Externals
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">NHRC Digital Library</a>
+              <a href="#" class="mega-menu-item">FERCAP 2024</a>
+              <a href="#" class="mega-menu-item">NepMed</a>
+              <a href="#" class="mega-menu-item">Summit</a>
+              <a href="#" class="mega-menu-item">Education Sub-Committee</a>
+            </div>
+          </div>
+
+          <div class="go-up" id="scroll-to-top">
+            &uarr; </div>
+          <div class="go-up">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <div class="search-wrapper">
+      <form class="search-form" role="search" aria-label="Site search">
+        <input type="search" class="search-input" placeholder="Search research, news, and resources..."
+          aria-label="Search query" autocomplete="off">
+        <button type="submit" class="search-button" aria-label="Submit search">
+          🔍
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
+      <div class="container">
+        <div class="hero-content">
+          <h2>Advancing Scientific Research for Better Health</h2>
+          <p>Leading government organization committed to improving public health and advancing scientific knowledge
+            through innovative research initiatives.</p>
+          <a href="#research" class="btn-primary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Gallery -->
+    <section class="section" id="notices">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Recent Media</h2>
+          <a href="#" class="view-all-btn">View all Media</a>
+        </div>
+        <div id="galleria" class="galleria">
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg" data-title="nhrc annual event"
+              data-description="nhrc_banner"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg" data-title="My title"
+              data-description="My description"></a>
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Noticeboard -->
+    <section class="section" style="background: #f8f9fa;" id="notices">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Noticeboard</h2>
+          <a href="#" class="view-all-btn">View All Notices</a>
+        </div>
+        <div class="noticeboard-list">
+          <div class="notice-item">
+            <div class="notice-date">Oct 26 - Asoj 10</div>
+            <div class="notice-content">Admission Notice of “Master in Medical Research” Program</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 24 - Asoj 8</div>
+            <div class="notice-content">Public advisory: Updated recommendations for seasonal health care.</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 22 - Asoj 06</div>
+            <div class="notice-content">Upcoming maintenance for online portal on November 1st.</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 19 - Asoj 2</div>
+            <div class="notice-content">Call for volunteers for Nepal health survey 2025.</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 14 - Bhadra 29</div>
+            <div class="notice-content">Health & Research Hub announces new scholarship programs.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Upcoming Events -->
+    <section class="section" id="events">
+      <div class="container">
+
+        <div class="section-header">
+          <h2 class="section-title">Upcoming Events</h2>
+          <a href="#" class="view-all-btn">View All Events</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Conference Image"
+              style="background-image: url('images/news3.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Annual Health Policy Conference 2024</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 December 15, 2024</span>
+                <span>📍 Research Center</span>
+              </div>
+              <a href="#" class="card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Summit Image"
+              style="background-image: url('images/sample.avif');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Public Health Innovation Summit</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 December 8, 2024</span>
+                <span>📍 Main Headquarters</span>
+              </div>
+              <a href="#" class="card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Wellness workshop"
+              style="background-image: url('images/nhrc.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Wellness & Prevention Workshop Series</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 January 15, 2025</span>
+                <span>📍 Community Centers</span>
+              </div>
+              <a href="#" class="card-link">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="section" style="background: #f8f9fa;" id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">NHRC News</h2>
+          <a href="#" class="view-all-btn">View All News</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/sample.avif');"></div>
+            <div class="card-content">
+              <h3 class="card-title">New Research Reveals Breakthrough in Diabetes Management</h3>
+              <p class="card-text">Our latest study shows promising results for innovative diabetes treatment
+                approaches, significantly improving patient outcomes.</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/team.jpg');">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Government Funding Boosts Health Technology Innovation</h3>
+              <p class="card-text">New government grants are accelerating the development of cutting-edge health
+                technologies, paving the way for future healthcare.</p>
+              <div class="card-meta">
+                <span>December 10, 2024</span>
+                <a href="#" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Community health program participants"
+              style="background-image: url('images/news3.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Community Health Programs Show Positive Results</h3>
+              <p class="card-text">Evaluations confirm the success of our community-based health initiatives, leading to
+                improved population health outcomes.</p>
+              <div class="card-meta">
+                <span>December 5, 2024</span>
+                <a href="#" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-header" style="float: right;">
+          <!-- <h4 class="section-title">Go to News page for more</h4> -->
+          <a href="#" class="view-all-btn2">View All News</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- About Us -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+          <p>The Health & Research Hub is a leading government organization committed to improving public health and
+            advancing scientific knowledge. Established with a mandate to serve all citizens, we conduct pioneering
+            research, develop evidence-based health policies, and implement innovative programs that empower individuals
+            to make informed health decisions. Our mission is to bridge the gap between research and practice, fostering
+            collaborative partnerships that drive meaningful change.</p>
+          <p>We work closely with healthcare professionals, academic institutions, and community organizations to
+            address pressing health challenges. Our initiatives span a wide range of areas, including disease
+            prevention, chronic disease management, mental health support, and health promotion.</p>
+        </div>
+    </section>
+
+
+    <!-- Partners -->
+    <section class="section" style="background: #f8f9fa;" id="partners">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Partners/Collaborators</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/who-logo.jpg');background-size: auto;"></div>
+
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/Unicef-logo.jpg');background-size: auto;">
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Community health program participants"
+              style="background-image: url('images/USAID-300x116.jpg');background-size: auto;"></div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <h2 class="section-title" id="research">Our Research
+          Initiatives</h3>
+          <p>
+            The NHRC is responsible for conducting and supporting research related to health within the Republic of
+            Nepal, subject to the health policy of the Government of Nepal. We focus on impactful research that
+            contributes significantly to global health advancements. We focus on
+            critical areas such as infectious diseases, non-communicable diseases, environmental health impacts, and the
+            application of cutting-edge technologies like artificial intelligence in diagnostics. Our findings inform
+            public health strategies and contribute to building a healthier, more resilient society.</p>
+
+          <div class="research-grid">
+            <div class="research-item">
+              <h3>Infectious Disease Control</h3>
+              <p>Developing strategies for preventing and managing infectious diseases, including emerging pathogens.
+              </p>
+            </div>
+            <div class="research-item">
+              <h3>Chronic Disease Management</h3>
+              <p>Research focused on improving the quality of life for people with chronic conditions like heart
+                disease,
+                diabetes, and cancer.</p>
+            </div>
+            <div class="research-item">
+              <h3>Environmental Health</h3>
+              <p>Studying the impact of environmental factors on public health and promoting protective interventions
+                for
+                cleaner environments.</p>
+            </div>
+            <div class="research-item">
+              <h3>Digital Health Technologies</h3>
+              <p>Exploring the use of digital tools and artificial intelligence to enhance healthcare delivery and
+                patient
+                outcomes.</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Board Members -->
+    <section class="section" style="background: #f8f9fa;" id="board-members">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">NHRC Board Members</h2>
+          <a href="#" class="view-all-btn">View All</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/chairman-NB-thapa.jpg'); background-size: contain;"></div>
+            <div class="card-content">
+              <h3 class="card-title">Prof. Dr. Narayan Bikram Thapa - Chairperson</h3>
+              <p class="card-text">Nepal Health Research Council acts as an autonomous apex body of Nepal government in
+                order to maintain the health facilities of the general public by doing study and research works on the
+                problems appearing in the health sector. Thus its functions are to regulate, facilitate and perform
+                health related research and trainings in the country. The scientific evidences generated through
+                research will be the asset and guidance to the government to promote and provide the reasonable health
+                to the public. The means to promote research would be capacity building of potential researchers and health workers by institutionalizing structured training programs; mobilizing available ...</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/Dr_Pramod_Joshi_Photo.jpg'); background-size: contain;">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Dr. Pramod Joshi - Member-Secretary(Executive Chief)</h3>
+              <p class="card-text">Constitution of Nepal has given high priority to health research for improvement of
+                health status of Nepalese people through evidence informed interventions and quality health care
+                services. Established by an Act of Parliament on 12 April 1991, Nepal Health Research Council (NHRC) is
+                an apex body of Government of Nepal responsible for coordinating and promoting high quality health
+                research in the country with its four major mandates: Research Regulation, Evidence Generation, Capacity
+                Building and Promoting use of evidence in policy and planning. The Ethical Review Board (ERB) of NHRC
+                has ...</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+
+        <a href="#" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div>
+            <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+            <!-- <img src="images/logo-gon.png" alt="Government of Nepal" class="logo-image">
+          <img src="images/nepal_flag.gif" alt="Government of Nepal flag" class="logo-image"> -->
+          </div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+1234567890">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:info@healthhub.gov">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#research">Research</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#notices">Notices</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on LinkedIn">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    Galleria.configure({
+      transition: "fade",
+      imageCrop: false,
+      lightbox: true,
+      responsive: true,
+      showInfo: true,
+      height: 600,
+    });
+
+    Galleria.run();
+
+  </script>
+</body>
+
+</html>

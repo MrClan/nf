@@ -1,0 +1,123 @@
+
+    /* Print styles */
+    @media print {
+
+      .header,
+      .footer,
+      .btn-primary,
+      .view-all-btn,
+      .menu-toggle {
+        display: none !important;
+      }
+
+      .hero {
+        background: none !important;
+        color: #000 !important;
+      }
+
+      .card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+
+      .section {
+        padding: 20px 0 !important;
+      }
+
+      a {
+        color: #000 !important;
+        text-decoration: underline !important;
+      }
+    }
+
+    /* Screen reader only class */
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    /* High contrast mode enhancements */
+    .high-contrast .card {
+      border: 3px solid #000 !important;
+    }
+
+    .high-contrast .btn-primary {
+      border: 3px solid #fff !important;
+    }
+
+    .high-contrast a:focus {
+      outline: 3px solid #000 !important;
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    /* Reduced motion preferences */
+    .reduced-motion * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    /* Dark mode preferences (basic support) */
+    /* .dark-mode-preferred {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    .dark-mode-preferred img,
+    .dark-mode-preferred video,
+    .dark-mode-preferred .card-image {
+      filter: invert(1) hue-rotate(180deg);
+    } */
+
+    /* IE6/Opera Mini specific fallbacks */
+    .ie6-fallback {
+      background: #f0f0f0;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+
+    /* Ensure text remains readable in all conditions */
+    @media screen and (max-width: 320px) {
+      body {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+      }
+
+      .hero-content h1 {
+        font-size: 24px !important;
+      }
+
+      .section-title {
+        font-size: 20px !important;
+      }
+    }
+
+    /* Additional focus styles for better visibility */
+    *:focus {
+      outline-offset: 2px;
+    }
+
+    /* Ensure minimum touch target sizes */
+    @media (hover: none) and (pointer: coarse) {
+
+      .btn-primary,
+      .view-all-btn,
+      .card-link,
+      .nav-menu a,
+      .footer-links a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }

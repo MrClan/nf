@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Nepal Health Research Council</title>
+  <meta name="description"
+    content="Leading government organization committed to improving public health and advancing scientific knowledge through research initiatives and community programs.">
+
+
+
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/classic/galleria.classic.min.js"></script>
+  <style>
+    #galleria {
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip Links for Screen Readers -->
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="#" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div>
+          <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+          <!-- <img src="images/logo-gon.png" alt="Government of Nepal" class="logo-image">
+          <img src="images/nepal_flag.gif" alt="flag of Nepal" class="logo-image"> -->
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about">गृह पृष्ठ</a></li>
+        <li><a href="#about">COVID-19</a></li>
+        <li><a href="#research">NepMed</a></li>
+        <li><a href="#news">डिजिटल पुस्तकालय</a></li>
+        <li><a href="#notices">शिखर सम्मेलन</a></li>
+        <li class="discover-menu">
+          <a href="#" class="discover-toggle" onclick="toggleDiscoverMenu(event)" aria-expanded="false">
+            थप मेनुहरू <span class="arrow">▾</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mega Menu -->
+    <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
+      <div class="mega-menu-container">
+        <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
+        <div class="mega-menu-grid">
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              बारेमा
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">हाम्रो बारेमा</a>
+              <a href="#" class="mega-menu-item">उद्देश्यहरू</a>
+              <a href="#" class="mega-menu-item">गतिविधिहरू</a>
+              <a href="#" class="mega-menu-item">पूर्व राष्ट्रपतिहरू</a>
+              <a href="#" class="mega-menu-item">कार्यकारी बोर्ड</a>
+              <a href="#" class="mega-menu-item">कर्मचारी</a>
+            </div>
+          </div>
+
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              Ethics
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">नैतिकता</a>
+              <a href="#" class="mega-menu-item">नैतिक समीक्षा बोर्ड (FERCAP २०१९ देखि मान्यता प्राप्त)</a>
+              <a href="#" class="mega-menu-item">संस्थागत समीक्षा समिति (IRC)</a>
+              <a href="#" class="mega-menu-item">नैतिक समीक्षा प्रक्रिया</a>
+              <a href="#" class="mega-menu-item">IRERP</a>
+              <a href="#" class="mega-menu-item">सोधिने प्रश्न</a>
+            </div>
+          </div>
+          
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              अनुसन्धान क्षेत्रहरू
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">संक्रामक रोगहरू</a>
+              <a href="#" class="mega-menu-item">दीर्घकालीन रोग व्यवस्थापन</a>
+              <a href="#" class="mega-menu-item">मानसिक स्वास्थ्य अनुसन्धान</a>
+              <a href="#" class="mega-menu-item">वातावरणीय स्वास्थ्य</a>
+              <a href="#" class="mega-menu-item">डिजिटल स्वास्थ्य प्रविधिहरू</a>
+              <a href="#" class="mega-menu-item">जीनोमिक्स र प्रेसिजन मेडिसिन</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              प्रकाशन र डेटा
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">अनुसन्धान प्रकाशनहरू</a>
+              <a href="#" class="mega-menu-item">वार्षिक प्रतिवेदनहरू</a>
+              <a href="#" class="mega-menu-item">डाटा पोर्टल</a>
+              <a href="#" class="mega-menu-item">तथ्याङ्कीय प्रतिवेदनहरू</a>
+              <a href="#" class="mega-menu-item">नीतिगत संक्षिप्त विवरणहरू</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              स्रोतहरू र उपकरणहरू
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">स्वास्थ्य निर्देशिकाहरू</a>
+              <a href="#" class="mega-menu-item">क्लिनिकल उपकरण</a>
+              <a href="#" class="mega-menu-item">शैक्षिक सामग्रीहरू</a>
+              <a href="#" class="mega-menu-item">तालिम कार्यक्रमहरू</a>
+              <a href="#" class="mega-menu-item">मोबाइल एप्स</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              साझेदारीहरू
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">शैक्षिक सहयोगहरू</a>
+              <a href="#" class="mega-menu-item">उद्योग साझेदारहरू</a>
+              <a href="#" class="mega-menu-item">अन्तरनेपाल सहयोग</a>
+              <a href="#" class="mega-menu-item">सामुदायिक संस्थाहरू</a>
+              <a href="#" class="mega-menu-item">अनुदान अवसरहरू</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true">
+              बाह्य
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content">
+              <a href="#" class="mega-menu-item">NHRC डिजिटल पुस्तकालय</a>
+              <a href="#" class="mega-menu-item">FERCAP २०२४</a>
+              <a href="#" class="mega-menu-item">नेपमेड</a>
+              <a href="#" class="mega-menu-item">शिखर सम्मेलन</a>
+              <a href="#" class="mega-menu-item">शिक्षा उप-समिति</a>
+            </div>
+          </div>
+
+          <div class="go-up" id="scroll-to-top">
+            &uarr; </div>
+          <div class="go-up">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <div class="search-wrapper">
+      <form class="search-form" role="search" aria-label="Site search">
+        <input type="search" class="search-input" placeholder="Search research, news, and resources..."
+          aria-label="Search query" autocomplete="off">
+        <button type="submit" class="search-button" aria-label="Submit search">
+          🔍
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
+      <div class="container">
+        <div class="hero-content">
+          <h2>राम्रो स्वास्थ्यको लागि वैज्ञानिक अनुसन्धानलाई अगाडि बढाउने</h2>
+          <p>नवीन अनुसन्धान पहलहरू मार्फत जनस्वास्थ्य सुधार र वैज्ञानिक ज्ञानको विकास गर्न प्रतिबद्ध अग्रणी सरकारी संस्था।</p>
+          <a href="#research" class="btn-primary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Gallery -->
+    <section class="section" id="notices">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">हालसालैका मिडिया</h2>
+          <a href="#" class="view-all-btn">सबै मिडिया हेर्नुहोस्</a>
+        </div>
+        <div id="galleria" class="galleria">
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg" data-title="एनएचआरसीको वार्षिक कार्यक्रम"
+              data-description="nhrc_banner"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_5.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_4.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_3.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_2.jpg" data-title="My title"
+              data-description="My description"></a>
+
+          <a href="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg">
+            <img src="https://nhrc.gov.np/wp-content/uploads/2025/04/Banner_2025_1.jpg" data-title="My title"
+              data-description="My description"></a>
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Noticeboard -->
+    <section class="section" style="background: #f8f9fa;" id="notices">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">सूचनापाटी</h2>
+          <a href="#" class="view-all-btn">सबै सूचनाहरू हेर्नुहोस्</a>
+        </div>
+        <div class="noticeboard-list">
+          <div class="notice-item">
+            <div class="notice-date">Oct 26 - Asoj 10</div>
+            <div class="notice-content">“चिकित्सा अनुसन्धानमा स्नातकोत्तर” कार्यक्रमको भर्ना सूचना</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 24 - Asoj 8</div>
+            <div class="notice-content">सार्वजनिक सल्लाह: मौसमी स्वास्थ्य सेवाको लागि अद्यावधिक सिफारिसहरू।</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 22 - Asoj 06</div>
+            <div class="notice-content">Uनोभेम्बर १ मा अनलाइन पोर्टलको लागि आगामी मर्मतसम्भार।</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 19 - Asoj 2</div>
+            <div class="notice-content">नेपाल स्वास्थ्य सर्वेक्षण २०२५ को लागि स्वयंसेवकहरूको लागि आह्वान।</div>
+          </div>
+          <div class="notice-item">
+            <div class="notice-date">Oct 14 - Bhadra 29</div>
+            <div class="notice-content">Hस्वास्थ्य तथा अनुसन्धान केन्द्रले नयाँ छात्रवृत्ति कार्यक्रमहरूको घोषणा गरेको छ।</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Upcoming Events -->
+    <section class="section" id="events">
+      <div class="container">
+
+        <div class="section-header">
+          <h2 class="section-title">आगामी घटनाहरू</h2>
+          <a href="#" class="view-all-btn">सबै घटनाहरू हेर्नुहोस्</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Conference Image"
+              style="background-image: url('images/news3.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">वार्षिक स्वास्थ्य नीति सम्मेलन २०२४</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 December 15, 2024</span>
+                <span>📍 अनुसन्धान केन्द्र</span>
+              </div>
+              <a href="#" class="card-link">विवरण हेर्नुहोस्</a>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Summit Image"
+              style="background-image: url('images/sample.avif');"></div>
+            <div class="card-content">
+              <h3 class="card-title">सार्वजनिक स्वास्थ्य नवप्रवर्तन शिखर सम्मेलन</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 December 8, 2024</span>
+                <span>📍 मुख्यालय</span>
+              </div>
+              <a href="#" class="card-link">विवरण हेर्नुहोस्</a>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Wellness workshop"
+              style="background-image: url('images/nhrc.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">कल्याण र रोकथाम कार्यशाला श्रृंखला</h3>
+              <div class="card-meta" style="margin-bottom: 15px;">
+                <span>📅 January 15, 2025</span>
+                <span>📍 सामुदायिक केन्द्रहरू</span>
+              </div>
+              <a href="#" class="card-link">विवरण हेर्नुहोस्</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="section" style="background: #f8f9fa;" id="news">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">NHRC समाचार</h2>
+          <a href="#" class="view-all-btn">सबै समाचार हेर्नुहोस्</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/sample.avif');"></div>
+            <div class="card-content">
+              <h3 class="card-title">नयाँ अनुसन्धानले मधुमेह व्यवस्थापनमा सफलताको खुलासा गरेको छ</h3>
+              <p class="card-text">हाम्रो पछिल्लो अध्ययनले नवीन मधुमेह उपचार दृष्टिकोणहरूको लागि आशाजनक नतिजाहरू देखाउँछ, जसले बिरामीको नतिजामा उल्लेखनीय सुधार ल्याउँछ।</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">थप पढ्नुहोस्</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/team.jpg');">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">सरकारी कोषले स्वास्थ्य प्रविधि नवप्रवर्तनलाई बढावा दिन्छ</h3>
+              <p class="card-text">ew सरकारी अनुदानले अत्याधुनिक स्वास्थ्य प्रविधिहरूको विकासलाई तीव्र पारिरहेको छ, जसले भविष्यको स्वास्थ्य सेवाको लागि मार्ग प्रशस्त गरिरहेको छ।</p>
+              <div class="card-meta">
+                <span>December 10, 2024</span>
+                <a href="#" class="card-link">थप पढ्नुहोस्</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Community health program participants"
+              style="background-image: url('images/news3.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">सामुदायिक स्वास्थ्य कार्यक्रमहरूले सकारात्मक परिणाम देखाउँछन्</h3>
+              <p class="card-text">मूल्याङ्कनले हाम्रो समुदाय-आधारित स्वास्थ्य पहलहरूको सफलता पुष्टि गर्छ, जसले गर्दा जनसंख्या स्वास्थ्य परिणामहरूमा सुधार आएको छ।</p>
+              <div class="card-meta">
+                <span>December 5, 2024</span>
+                <a href="#" class="card-link">थप पढ्नुहोस्</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-header" style="float: right;">
+          <!-- <h4 class="section-title">Go to News page for more</h4> -->
+          <a href="#" class="view-all-btn2">सबै समाचार हेर्नुहोस्</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- About Us -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">हाम्रो बारेमा</h2>
+        <div class="about-content">
+          <p>स्वास्थ्य तथा अनुसन्धान केन्द्र सार्वजनिक स्वास्थ्य सुधार गर्न र वैज्ञानिक ज्ञानको विकास गर्न प्रतिबद्ध एक अग्रणी सरकारी संस्था हो। सबै नागरिकहरूको सेवा गर्ने जनादेशका साथ स्थापित, हामी अग्रगामी
+अनुसन्धान सञ्चालन गर्छौं, प्रमाण-आधारित स्वास्थ्य नीतिहरू विकास गर्छौं, र नवीन कार्यक्रमहरू कार्यान्वयन गर्छौं जसले व्यक्तिहरूलाई सूचित स्वास्थ्य निर्णयहरू लिन सशक्त बनाउँछ। हाम्रो लक्ष्य भनेको अनुसन्धान र अभ्यास बीचको खाडललाई कम गर्नु हो, अर्थपूर्ण परिवर्तन ल्याउने
+सहयोगी साझेदारीलाई बढावा दिनु हो।</p>
+          <p>हामी स्वास्थ्य सेवा पेशेवरहरू, शैक्षिक संस्थाहरू, र सामुदायिक संस्थाहरूसँग नजिकबाट काम गर्छौं
+जुन स्वास्थ्य चुनौतीहरूलाई सम्बोधन गर्नका लागि हो। हाम्रा पहलहरूले रोग
+रोकथाम, दीर्घकालीन रोग व्यवस्थापन, मानसिक स्वास्थ्य सहयोग, र स्वास्थ्य प्रवर्द्धन सहित विस्तृत क्षेत्रहरू फैलाउँछन्।</p>
+        </div>
+    </section>
+
+
+    <!-- Partners -->
+    <section class="section" style="background: #f8f9fa;" id="partners">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">साझेदार/सहयोगीहरू</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/who-logo.jpg');background-size: auto;"></div>
+
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/Unicef-logo.jpg');background-size: auto;">
+            </div>
+          </article>
+
+          <article class="card">
+
+            <div class="bg-cover" role="img" aria-label="Community health program participants"
+              style="background-image: url('images/USAID-300x116.jpg');background-size: auto;"></div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <h2 class="section-title" id="research">हाम्रा अनुसन्धान पहलहरू</h3>
+          <p>
+            NHRC नेपाल सरकारको स्वास्थ्य नीतिको अधीनमा रही गणतन्त्र नेपाल भित्र स्वास्थ्यसँग सम्बन्धित अनुसन्धान सञ्चालन र समर्थन गर्ने जिम्मेवारी हो। हामी प्रभावकारी अनुसन्धानमा ध्यान केन्द्रित गर्छौं जसले विश्वव्यापी स्वास्थ्य प्रगतिमा उल्लेखनीय योगदान पुर्‍याउँछ। हामी संक्रामक रोगहरू, गैर-संक्रामक रोगहरू, वातावरणीय स्वास्थ्य प्रभावहरू, र निदानमा कृत्रिम बुद्धिमत्ता जस्ता अत्याधुनिक प्रविधिहरूको प्रयोग जस्ता महत्वपूर्ण क्षेत्रहरूमा ध्यान केन्द्रित गर्छौं। हाम्रा निष्कर्षहरूले सार्वजनिक स्वास्थ्य रणनीतिहरूलाई सूचित गर्छन् र स्वस्थ, थप लचिलो समाज निर्माणमा योगदान पुर्‍याउँछन्।</p>
+
+          <div class="research-grid">
+            <div class="research-item">
+              <h3>संक्रामक रोग नियन्त्रण</h3>
+              <p>उदीयमान रोगजनकहरू सहित संक्रामक रोगहरूको रोकथाम र व्यवस्थापनका लागि रणनीतिहरू विकास गर्ने।
+              </p>
+            </div>
+            <div class="research-item">
+              <h3>दीर्घकालीन रोग व्यवस्थापन</h3>
+              <p>अनुसन्धानले मुटु रोग, मधुमेह र क्यान्सर जस्ता दीर्घकालीन अवस्था भएका व्यक्तिहरूको जीवनस्तर सुधार गर्नमा केन्द्रित थियो।</p>
+            </div>
+            <div class="research-item">
+              <h3>वातावरणीय स्वास्थ्य</h3>
+              <p>जनस्वास्थ्यमा वातावरणीय कारकहरूको प्रभावको अध्ययन गर्ने र स्वच्छ वातावरणको लागि सुरक्षात्मक हस्तक्षेपहरूलाई प्रवर्द्धन गर्ने।</p>
+            </div>
+            <div class="research-item">
+              <h3>डिजिटल स्वास्थ्य प्रविधिहरू</h3>
+              <p>स्वास्थ्य सेवा वितरण र बिरामीको नतिजा बढाउन डिजिटल उपकरणहरू र कृत्रिम बुद्धिमत्ताको प्रयोगको अन्वेषण गर्दै।</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Board Members -->
+    <section class="section" style="background: #f8f9fa;" id="board-members">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">NHRC बोर्ड सदस्यहरू</h2>
+          <a href="#" class="view-all-btn">सबै हेर्नुहोस्</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Medical professionals discussing research"
+              style="background-image: url('images/chairman-NB-thapa.jpg'); background-size: contain;"></div>
+            <div class="card-content">
+              <h3 class="card-title">प्रो. डा नारायण विक्रम थापा – अध्यक्ष</h3>
+              <p class="card-text">नेपाल स्वास्थ्य अनुसन्धान परिषद्ले स्वास्थ्य क्षेत्रमा देखा परेका समस्याहरूको अध्ययन र अनुसन्धान गरी आम जनताको स्वास्थ्य सुविधा कायम राख्न नेपाल सरकारको एक स्वायत्त सर्वोच्च निकायको रूपमा काम गर्दछ। यसरी यसको कार्यहरू देशमा स्वास्थ्य सम्बन्धी अनुसन्धान र तालिमहरूलाई नियमन, सहजीकरण र सञ्चालन गर्नु हो। अनुसन्धानबाट उत्पन्न वैज्ञानिक प्रमाणहरू जनतालाई उचित स्वास्थ्य प्रवर्द्धन र प्रदान गर्न सरकारको लागि सम्पत्ति र मार्गदर्शन हुनेछन्। अनुसन्धानलाई प्रवर्द्धन गर्ने माध्यम भनेको संरचित प्रशिक्षण कार्यक्रमहरूलाई संस्थागत गरेर सम्भावित अनुसन्धानकर्ताहरू र स्वास्थ्यकर्मीहरूको क्षमता निर्माण गर्नु हो; उपलब्ध ...</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">थप पढ्नुहोस्</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare technology innovation"
+              style="background-image: url('images/Dr_Pramod_Joshi_Photo.jpg'); background-size: contain;">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">डा. प्रमोद जोशी - सदस्य-सचिव (कार्यकारी प्रमुख)</h3>
+              <p class="card-text">नेपालको संविधानले प्रमाण-सूचित हस्तक्षेप र गुणस्तरीय स्वास्थ्य सेवा मार्फत नेपाली जनताको स्वास्थ्य स्थिति सुधार गर्न स्वास्थ्य अनुसन्धानलाई उच्च प्राथमिकता दिएको छ। १२ अप्रिल १९९१ मा संसदको ऐनद्वारा स्थापित, नेपाल स्वास्थ्य अनुसन्धान परिषद् (NHRC)
+नेपाल सरकारको एक शीर्ष निकाय हो जुन देशमा उच्च गुणस्तरको स्वास्थ्य अनुसन्धानको समन्वय र प्रवर्द्धन गर्न जिम्मेवार छ जसको चार प्रमुख कार्यादेशहरू छन्: अनुसन्धान नियमन, प्रमाण उत्पादन, क्षमता
+नीति र योजनामा ​​प्रमाणको प्रयोग निर्माण र प्रवर्द्धन। NHRC को नैतिक समीक्षा बोर्ड (ERB)
+ले ...</p>
+              <div class="card-meta">
+                <span>December 15, 2024</span>
+                <a href="#" class="card-link">थप पढ्नुहोस्</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+
+        <a href="#" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div>
+            <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+            <!-- <img src="images/logo-gon.png" alt="Government of Nepal" class="logo-image">
+          <img src="images/nepal_flag.gif" alt="Government of Nepal flag" class="logo-image"> -->
+          </div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+1234567890">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:info@healthhub.gov">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#research">Research</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#notices">Notices</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on LinkedIn">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    Galleria.configure({
+      transition: "fade",
+      imageCrop: false,
+      lightbox: true,
+      responsive: true,
+      showInfo: true,
+      height: 600,
+    });
+
+    Galleria.run();
+
+  </script>
+</body>
+
+</html>

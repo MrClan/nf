@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Click & Win - Discovery Feed Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    #image-grid {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      #image-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #image-grid {
+        column-count: 3;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      #image-grid {
+        column-count: 4;
+      }
+    }
+
+    .grid-item {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .modal-open {
+      overflow: hidden;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    #slidable-comments {
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+      max-height: 50%;
+    }
+
+    #image-modal.comments-visible #slidable-comments {
+      transform: translateY(0);
+    }
+
+    #comment-handle .chevron-icon {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #image-modal.comments-visible #comment-handle .chevron-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body class="bg-[#121212] text-white">
+
+  <!-- Responsive Navigation Bar -->
+  <nav class="sticky top-0 z-20 bg-[#181818]/80 backdrop-blur-lg border-b border-gray-700/50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="text-2xl font-bold tracking-tight" style="color: #00A9FF;">Click &amp; Win</a>
+        </div>
+
+        <div class="hidden md:flex md:items-center md:space-x-8"></div>
+
+        <div class="flex items-center space-x-3">
+          <button id="search-button" aria-label="Open search"
+            class="text-white hover:text-gray-300 focus:outline-none">🔍</button>
+          <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Discover</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Competitions</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Learn</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Community</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profile</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="promo-banner" class="bg-gradient-to-r from-[#00A9FF] to-[#0077B6] text-white p-4 text-center relative">
+    <div class="container mx-auto">
+      <h2 class="text-lg md:text-xl font-bold">Turn Your Passion into Profit</h2>
+      <p class="text-sm md:text-base mt-1">Join competitions, build your community, and start monetizing your
+        photography hobby today.</p>
+      <a href="#"
+        class="inline-block bg-white text-[#0077B6] px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition mt-3">Sign
+        Up</a>
+    </div>
+    <button id="close-banner-button" class="absolute top-1/2 -translate-y-1/2 right-4 text-white hover:text-gray-200"
+      aria-label="Dismiss banner">&times;</button>
+  </section>
+
+  <main class="p-4">
+    <div id="image-grid" aria-live="polite"></div>
+  </main>
+
+  <div id="sentinel" class="h-10"></div>
+
+  <template id="grid-item-template">
+    <article class="grid-item group relative cursor-pointer overflow-hidden rounded-lg shadow-lg" data-likes="0">
+      <img class="main-img w-full h-auto block bg-[#181818]"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+        alt="User-submitted photography">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div class="absolute bottom-0 left-0 w-full p-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex items-center">
+          <span class="text-sm text-white">Photographer</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-gray-300">0 ❤️</span>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <div id="image-modal" class="hidden fixed inset-0 bg-black/80 z-40 flex items-center justify-center p-4">
+    <div class="relative bg-[#181818] rounded-lg shadow-xl w-full max-w-lg h-full max-h-[90vh] flex flex-col overflow-hidden">
+      <button id="close-image-modal"
+        class="absolute top-3 right-3 text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/75 z-50">&times;</button>
+      <img id="modal-image" src="" class="w-full h-auto object-contain" alt="Enlarged view">
+      <div class="p-4 text-white" id="modal-caption"></div>
+    </div>
+  </div>
+
+  <div id="search-overlay" class="hidden fixed inset-0 bg-[#121212]/95 z-50 flex flex-col items-center p-4 backdrop-blur-md">
+    <button id="close-search-overlay" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+    <div class="w-full max-w-2xl mt-20">
+      <input type="search" id="search-input" placeholder="Search for photos, keywords, or users..."
+        class="w-full bg-transparent border-b-2 border-gray-500 text-2xl md:text-4xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00A9FF] py-4">
+      <div id="search-results" class="mt-8 text-white"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Safe helpers
+      function $(id) { return document.getElementById(id); }
+      function on(el, ev, fn) { if (el) el.addEventListener(ev, fn); }
+
+      // Elements (guarded)
+      var imageGrid = $('image-grid');
+      var sentinel = $('sentinel');
+      var template = $('grid-item-template');
+      var mobileMenuButton = $('mobile-menu-button');
+      var mobileMenu = $('mobile-menu');
+      var promoBanner = $('promo-banner');
+      var closeBannerButton = $('close-banner-button');
+      var imageModal = $('image-modal');
+      var closeImageModalButton = $('close-image-modal');
+      var modalImage = $('modal-image');
+      var modalCaption = $('modal-caption');
+      var searchButton = $('search-button');
+      var mobileSearchButton = $('mobile-search-button'); // not present but guarded
+      var searchOverlay = $('search-overlay');
+      var closeSearchOverlay = $('close-search-overlay');
+      var searchInput = $('search-input');
+      var searchResults = $('search-results');
+
+      // Toggle mobile menu
+      on(mobileMenuButton, 'click', function () {
+        if (!mobileMenu) return;
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Promo banner close
+      on(closeBannerButton, 'click', function () {
+        if (!promoBanner) return;
+        promoBanner.classList.add('hidden');
+      });
+
+      // Simple image modal open/close
+      on(closeImageModalButton, 'click', function () {
+        if (!imageModal) return;
+        imageModal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+        modalImage.src = '';
+        modalCaption.textContent = '';
+      });
+
+      // Open image modal when a grid item is clicked
+      function attachGridItemClick(el) {
+        if (!el) return;
+        el.addEventListener('click', function () {
+          var img = el.querySelector('img');
+          if (!img) return;
+          modalImage.src = img.getAttribute('data-src') || img.src;
+          modalCaption.textContent = img.alt || '';
+          imageModal.classList.remove('hidden');
+          document.body.classList.add('modal-open');
+        });
+      }
+
+      // Load more images stub
+      var nextImageIndex = 1;
+      function createGridItem(src, alt) {
+        if (!template) return null;
+        var node = template.content.firstElementChild.cloneNode(true);
+        var img = node.querySelector('img');
+        if (img) {
+          img.src = src;
+          img.setAttribute('data-src', src);
+          img.alt = alt || 'User-submitted photography';
+        }
+        attachGridItemClick(node);
+        return node;
+      }
+
+      function loadMoreImages(count) {
+        count = count || 8;
+        if (!imageGrid) return;
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < count; i++) {
+          var src = 'https://picsum.photos/600/400?random=' + (nextImageIndex++);
+          var item = createGridItem(src, 'Sample Image ' + (nextImageIndex - 1));
+          if (item) frag.appendChild(item);
+        }
+        imageGrid.appendChild(frag);
+      }
+
+      // IntersectionObserver for infinite load (guarded)
+      if (typeof IntersectionObserver !== 'undefined' && sentinel) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              loadMoreImages(6);
+            }
+          });
+        }, { rootMargin: '200px' });
+        io.observe(sentinel);
+      } else {
+        // Fallback: load some images initially
+        loadMoreImages(12);
+      }
+
+      // Basic search overlay open/close
+      function openSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+        if (searchInput) searchInput.focus();
+      }
+      function closeSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+        if (searchInput) searchInput.value = '';
+        if (searchResults) searchResults.innerHTML = '';
+      }
+
+      on(searchButton, 'click', openSearch);
+      on(closeSearchOverlay, 'click', closeSearch);
+
+      // Simple search handling (debounced)
+      var searchTimer = null;
+      on(searchInput, 'input', function () {
+        var q = (searchInput.value || '').trim();
+        if (searchTimer) clearTimeout(searchTimer);
+        if (q.length < 2) {
+          if (searchResults) searchResults.innerHTML = '';
+          return;
+        }
+        searchTimer = setTimeout(function () {
+          displaySearchResults(q);
+        }, 250);
+      });
+
+      function displaySearchResults(query) {
+        if (!searchResults) return;
+        var html = '<p class="text-gray-400 mb-4">Showing results for "' + escapeHtml(query) + '"</p>';
+        html += '<div class="grid grid-cols-2 md:grid-cols-4 gap-4">';
+        for (var i = 1; i <= 4; i++) {
+          var rand = Math.floor(Math.random() * 1000);
+          html += '<div class="bg-gray-800 rounded-lg overflow-hidden"><img src="https://picsum.photos/300/300?random=' + rand + '" class="w-full h-auto" /><p class="p-2 text-sm">Sample Image ' + i + '</p></div>';
+        }
+        html += '</div>';
+        searchResults.innerHTML = html;
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (m) {
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+        });
+      }
+
+      // Load initial batch
+      loadMoreImages(12);
+
+      // Close modal on ESC
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          if (imageModal && !imageModal.classList.contains('hidden')) {
+            closeImageModalButton && closeImageModalButton.click();
+          }
+          if (searchOverlay && !searchOverlay.classList.contains('hidden')) {
+            closeSearchOverlay && closeSearchOverlay.click();
+          }
+        }
+      });
+
+    })();
+  </script>
+</body>
+
+</html>

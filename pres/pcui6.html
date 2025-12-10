@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Health Research Council</title>
+    <meta name="description" content="Advancing Scientific Research for Better Health - National Health Research Council official website.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            --color-primary: #D94A4E;
+            --color-primary-dark: #b83b3f;
+            --color-text: #4F4F4F;
+            --color-text-light: #828282;
+            --color-heading: #333333;
+            --color-background: #FFFFFF;
+            --color-surface: #F9F9F9;
+            --color-border: #E0E0E0;
+            --color-card-bg: #FFFFFF;
+            --color-dark-blue-bg: #1A294D;
+            --color-dark-blue-text: #FFFFFF;
+            --font-family-base: 'Poppins', sans-serif;
+            --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+            --transition-speed: 0.3s ease;
+        }
+
+        html.dark {
+            --color-primary: #E55B5F;
+            --color-primary-dark: #d94a4e;
+            --color-text: #BDBDBD;
+            --color-text-light: #828282;
+            --color-heading: #F2F2F2;
+            --color-background: #121212;
+            --color-surface: #1E1E1E;
+            --color-border: #333333;
+            --color-card-bg: #2C2C2C;
+            --color-dark-blue-bg: #2C3A5E;
+            --color-dark-blue-text: #E0E0E0;
+            --box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 16px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover, a:focus {
+            color: var(--color-primary-dark);
+            text-decoration: underline;
+        }
+        
+        button {
+            background: none;
+            border: none;
+            font-family: inherit;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        /* Utility Classes */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: #fff;
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--color-primary-dark);
+            color: #fff;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+        
+        .card {
+            background-color: var(--color-card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            padding: 20px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .view-all-link {
+            font-weight: 500;
+        }
+
+        /* Theme Toggle Button */
+        .theme-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+        }
+        .theme-switcher svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-text);
+        }
+        .theme-switcher .moon-icon { display: none; }
+        html.dark .theme-switcher .sun-icon { display: none; }
+        html.dark .theme-switcher .moon-icon { display: block; }
+
+        /* Header & Navigation */
+        .main-header {
+            background-color: var(--color-background);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--color-heading);
+            font-size: 1.1rem;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .main-nav {
+            display: none; /* Hide by default, show on desktop */
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .main-nav a, .main-nav button {
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 5px 0;
+        }
+        .main-nav a:hover, .main-nav a:focus, .main-nav a.active, 
+        .main-nav button:hover, .main-nav button:focus {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        /* Mega Menu (Desktop) */
+        .has-megamenu {
+            position: relative;
+        }
+        .megamenu-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .megamenu-toggle svg {
+            transition: transform var(--transition-speed);
+        }
+        .has-megamenu.is-open .megamenu-toggle svg {
+            transform: rotate(180deg);
+        }
+        .mega-menu {
+            position: fixed;
+            top: 71px; /* Header height */
+            left: 0;
+            width: 100%;
+            background-color: var(--color-background);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity var(--transition-speed), transform var(--transition-speed), visibility var(--transition-speed);
+        }
+        .has-megamenu.is-open .mega-menu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mega-menu-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+        }
+        .mega-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .mega-menu-header h2 {
+            font-size: 1.5rem;
+            color: var(--color-heading);
+        }
+        .mega-menu-close {
+            background-color: var(--color-surface);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+        }
+        .mega-menu-close:hover, .mega-menu-close:focus {
+            background-color: var(--color-border);
+            transform: rotate(90deg);
+        }
+        .mega-menu-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-text);
+        }
+        .mega-menu-content {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 20px; /* For scrollbar */
+        }
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .mega-menu-group h3 {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .mega-menu-group ul {
+            list-style: none;
+        }
+        .mega-menu-group li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed), transform var(--transition-speed), border-left-color var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            border-left: 3px solid transparent;
+        }
+        .mega-menu-group li a:hover, .mega-menu-group li a:focus, .mega-menu-group li a.active {
+            background-color: var(--color-surface);
+            transform: translateX(5px);
+            text-decoration: none;
+            border-left-color: var(--color-primary);
+        }
+        .mega-menu-item-content span {
+            font-weight: 500;
+            color: var(--color-heading);
+        }
+        .mega-menu-item-content p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+        .mega-menu-item-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .scroll-to-top {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition-speed);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-to-top svg {
+            stroke: white;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: block;
+            z-index: 1001;
+        }
+        .mobile-menu-toggle svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--color-heading);
+        }
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-background);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform var(--transition-speed);
+            padding: 80px 20px 20px;
+            overflow-y: auto;
+        }
+        body.mobile-menu-open .mobile-nav {
+            transform: translateX(0);
+        }
+        .mobile-nav ul {
+            list-style: none;
+        }
+        .mobile-nav > ul > li {
+            border-bottom: 1px solid var(--color-border);
+        }
+        .mobile-nav a, .mobile-nav button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 15px 10px;
+            font-size: 1.2rem;
+            color: var(--color-heading);
+            font-weight: 500;
+            text-align: left;
+        }
+        .mobile-nav button svg {
+            transition: transform var(--transition-speed);
+        }
+        .mobile-nav button[aria-expanded="true"] svg {
+            transform: rotate(180deg);
+        }
+        .mobile-megamenu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            background-color: var(--color-surface);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 41, 77, 0.7);
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+        .hero-content h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 80%;
+        }
+        .hero-cards {
+            display: flex;
+            gap: 15px;
+            max-width: 45%;
+        }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 180px;
+        }
+        .hero-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .hero-card p {
+            color: #E0E0E0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* All other section styles remain here */
+        .media-events-section .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .noticeboard-item, .event-item { padding: 15px 0; border-bottom: 1px solid var(--color-border); }
+        .event-item { display: flex; align-items: center; gap: 20px; }
+        .event-icon { background-color: var(--color-surface); padding: 15px; border-radius: 50%; display: flex; }
+        .event-icon svg { width: 24px; height: 24px; fill: var(--color-primary); }
+        .news-section { background-color: var(--color-surface); }
+        .news-section .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; grid-column: 1 / -1; margin-bottom: 40px; }
+        .news-card { grid-column: span 2; display: flex; gap: 20px; align-items: center; padding: 30px; }
+        .sponsors { grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; gap: 50px; margin-top: 30px; }
+        .sponsors img { height: 40px; filter: grayscale(100%); opacity: 0.6; transition: var(--transition-speed); }
+        .sponsors img:hover { filter: grayscale(0%); opacity: 1; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .board-section { background-color: var(--color-dark-blue-bg); }
+        .board-section h2 { color: var(--color-dark-blue-text); }
+        .board-members-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .main-footer { background-color: var(--color-surface); padding-top: 50px; }
+        .footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border); }
+        .footer-bottom { padding: 20px 0; text-align: center; }
+
+        /* Responsive Styles */
+        @media (min-width: 1024px) {
+            .main-nav { display: block; }
+            .mobile-menu-toggle { display: none; }
+            .mobile-nav { display: none; }
+        }
+        
+        @media (max-width: 1024px) {
+            .hero .container { flex-direction: column; gap: 40px; text-align: center; }
+            .hero-content { max-width: 100%; }
+            .hero-content p { max-width: 100%; margin: 0 auto 30px; }
+            .hero-cards { max-width: 100%; justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .section-padding { padding: 40px 0; }
+            .media-events-section .container, .news-section .container, .board-members-grid, .about-grid { grid-template-columns: 1fr; }
+            .news-card { flex-direction: column; text-align: center; }
+            .events-grid { grid-template-columns: 1fr; }
+            .hero-cards { flex-direction: column; align-items: center; width: 100%; }
+            .sponsors { flex-wrap: wrap; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo" aria-label="National Health Research Council Home">
+                <img src="https://i.ibb.co/6yZzKzB/logo-placeholder.png" alt="NHRC Logo">
+                <span>National Health Research Council</span>
+            </a>
+            
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">COVID-19</a></li>
+                    <li><a href="#">NepMed</a></li>
+                    <li><a href="#">Digital Library</a></li>
+                    <li><a href="#">Sucondis</a></li>
+                    <li class="has-megamenu">
+                        <button type="button" class="megamenu-toggle" id="discover-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mega-menu">
+                            Discover 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                        <div class="mega-menu" id="mega-menu" role="region" aria-labelledby="discover-toggle">
+                            <div class="mega-menu-inner">
+                                <header class="mega-menu-header">
+                                    <h2>Explore Our Resources</h2>
+                                    <button type="button" class="mega-menu-close" id="mega-menu-close" aria-label="Close Mega Menu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
+                                </header>
+                                <div class="mega-menu-content" id="mega-menu-content">
+                                    <div class="mega-menu-grid">
+                                        <div class="mega-menu-group">
+                                            <h3>Research Areas</h3>
+                                            <ul>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Chronic Diseases</span></div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Infectious Diseases</span></div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content">
+                                                    <span>Mental Health</span>
+                                                    <p>Studies on psychological well-being.</p>
+                                                </div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Nutrition & Diet</span></div></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-menu-group">
+                                            <h3>Publications</h3>
+                                            <ul>
+                                                <li><a href="#">
+                                                    <img class="mega-menu-item-image" src="https://images.unsplash.com/photo-1583341612174-215af54804a2?q=80&w=200&auto=format&fit=crop" alt="A stack of medical journals.">
+                                                    <div class="mega-menu-item-content">
+                                                        <span>Annual Journal 2025</span>
+                                                        <p>Our flagship publication with key findings.</p>
+                                                    </div>
+                                                </a></li>
+                                                <li><a href="#">
+                                                    <img class="mega-menu-item-image" src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=200&auto=format&fit=crop" alt="A doctor reviewing a document.">
+                                                    <div class="mega-menu-item-content">
+                                                        <span>Policy Briefs</span>
+                                                    </div>
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-menu-group">
+                                            <h3>Data & Tools</h3>
+                                            <ul>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Open Data Portal</span></div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content">
+                                                    <span>Ethical Review System</span>
+                                                    <p>Submit and track research proposals.</p>
+                                                </div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Statistical Software</span></div></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-menu-group">
+                                            <h3>About Us</h3>
+                                            <ul>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Our Mission</span></div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Board Members</span></div></a></li>
+                                                <li><a href="#"><div class="mega-menu-item-content"><span>Career Opportunities</span></div></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">COVID-19</a></li>
+            <li><a href="#">NepMed</a></li>
+            <li><a href="#">Digital Library</a></li>
+            <li><a href="#">Sucondis</a></li>
+            <li class="has-megamenu-mobile">
+                <button type="button" id="mobile-discover-toggle" aria-expanded="false" aria-controls="mobile-megamenu-content">
+                    Discover
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+                </button>
+                <div class="mobile-megamenu-content" id="mobile-megamenu-content">
+                    </div>
+            </li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Advancing Scientific Research for Better Health</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="hero-cards">
+                    <article class="hero-card"><h3>Ventorelit Backled</h3><p>Labore et dolore magna aliqua. 2025 Feb 25</p></article>
+                    <article class="hero-card"><h3>Airtel nait florea</h3><p>Ut enim ad minim veniam. 2025 Mar 10</p></article>
+                    <article class="hero-card"><h3>Patria ok</h3><p>Duis aute irure dolor in. 2025 Apr 01</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="media-events-section section-padding">
+            <div class="container">
+                <div class="recent-media"><div class="section-header"><h2>Recent Media</h2><a href="#" class="view-all-link">View All</a></div><div><article class="noticeboard-item"><h4>Noticeboard</h4><p>Excepteur sint occaecat cupidatat non proident.</p></article><article class="noticeboard-item"><h4>Noticeboard</h4><p>Sunt in culpa qui officia deserunt mollit anim.</p></article></div></div>
+                <div class="upcoming-events"><div class="section-header"><h2>Upcoming Events</h2><a href="#" class="view-all-link">View All</a></div><div><article class="event-item"><div class="event-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div><h4>Billed Liontile</h4><a href="#">View Details</a></div></article><article class="event-item"><div class="event-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2s2-.9 2-2V5c0-1.1-.9-2-2-2zm6.1 9.1c.66 0 1.2-.54 1.2-1.2V5.7c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v5.2c0 .66.54 1.2 1.2 1.2zm-12.2 0c.66 0 1.2-.54 1.2-1.2V5.7c0-.66-.54-1.2-1.2-1.2S4.7 5.04 4.7 5.7v5.2c0 .66.54 1.2 1.2 1.2zm6.2 5.1c3.04 0 5.5-2.46 5.5-5.5H6.5c0 3.04 2.46 5.5 5.5 5.5z"/></svg></div><div><h4>Doitmad Trisk</h4><a href="#">View Details</a></div></article></div></div>
+            </div>
+        </section>
+        <section class="news-section section-padding"><div class="container"><header class="section-header" style="grid-column:1/-1"><h2>Upcoming Events</h2></header><div class="events-grid"><article class="card event-card"><div class="event-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><h4>Blag Bedwb</h4><a href="#">View Details</a></article><article class="card event-card"><div class="event-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2.66 0 1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2s-1.2-.54-1.2-1.2V4.9zm6.5 6.1c0 3.03-2.47 5.5-5.5 5.5S6.3 14.03 6.3 11H4.8c0 3.53 2.61 6.43 6 6.92V21h2.4v-3.08c3.39-.49 6-3.39 6-6.92h-1.5z"/></svg></div><h4>Nionj Reswwir</h4><a href="#">View Details</a></article><article class="card event-card"><div class="event-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div><h4>Elony Dockfiy</h4><a href="#">View Details</a></article></div><header class="section-header" style="grid-column:1/-1"><h2>NHRC News</h2></header><article class="card news-card"><img src="https://i.ibb.co/k27W1dG/profile1.png" alt="Dr. Lizzy Thonibi" width="60" height="60"><div class="news-card-content"><h3>Chronic Health Research</h3><span>Lizzy Thonibi</span></div><div class="btn-group"><a href="#" class="btn btn-outline">Read More</a><a href="#" class="btn btn-primary">View Details</a></div></article><div class="sponsors"><img src="https://i.ibb.co/3WfK2yv/who-logo.png" alt="WHO Logo"><img src="https://i.ibb.co/68037kH/unicef-logo.png" alt="UNICEF Logo"><img src="https://i.ibb.co/hZ2p430/usaid-logo.png" alt="USAID Logo"></div></div></section>
+        <section class="section-padding"><div class="container about-grid"><div class="about-text"><div class="section-header" style="flex-direction:column;align-items:flex-start;margin-bottom:20px"><h2>About Us</h2><h3>Head Scimnitivity</h3></div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p></div><article class="card about-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="var(--color-primary)"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.5-3.5h5v-2h-5v2zm0-3h5v-2h-5v2zm0-3h5v-2h-5v2z"/></svg></div><h3>Our Research Initiatives</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><a href="#">Read More</a></article><article class="card about-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="var(--color-primary)"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg></div><h3>Our Reasevdy Initiatives</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><a href="#">Read More</a></article></div></section>
+        <section class="board-section section-padding"><div class="container"><div class="section-header" style="justify-content:center;text-align:center"><h2>NHRC Board Members</h2></div><div class="board-members-grid"><article class="card member-card"><img src="https://i.ibb.co/k27W1dG/profile1.png" alt="Ilendo Health Research" width="100" height="100"><h3>Ilendo Health Research</h3><p>Duis aute irure dolor in reprehenderit</p><a href="#">Read More</a></article><article class="card member-card"><img src="https://i.ibb.co/V9714X9/profile2.png" alt="Nerr Hoopla Vladenia" width="100" height="100"><h3>Nerr Hoopla Vladenia</h3><p>Excepteur sint occaecat cupidatat</p><a href="#">Read More</a></article></div></div></section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top"><div class="footer-col"><h4>About Us</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Speicivise Tak</a></li></ul></div><div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#">Library</a></li><li><a href="#">COVID-19</a></li></ul></div><div class="footer-col"><h4>Stay Informed</h4><p>Subscribe for updates</p></div><div class="footer-col"><h4>Follow Us</h4><div class="footer-socials"><a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12s4.5 9.96 10 9.96c5.5 0 10-4.46 10-9.96S17.5 2.04 12 2.04zm3.5 6.74h-2.15c-.45 0-.6.2-.6.62v1.24h2.75l-.35 2.76h-2.4v7.05h-2.85v-7.05H8.5V9.4h1.65v-1.4c0-1.65 1.0-2.55 2.5-2.55H15v2.75z"/></svg></a><a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.22-1.95-.55v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21c7.35 0 11.37-6.08 11.37-11.37 0-.17 0-.34-.01-.51.78-.57 1.45-1.28 1.98-2.08z"/></svg></a></div></div></div>
+            <div class="footer-bottom"><p>&copy; 2025 National Health Research Council. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <button type="button" class="theme-switcher" id="theme-switcher" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l1.06-1.06z"/></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>
+    </button>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Theme Switcher Logic ---
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const doc = document.documentElement;
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            doc.classList.add('dark');
+        }
+        themeSwitcher.addEventListener('click', () => {
+            doc.classList.toggle('dark');
+            let theme = doc.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        // --- Mega Menu Logic ---
+        const discoverToggle = document.getElementById('discover-toggle');
+        const megaMenu = document.getElementById('mega-menu');
+        const megaMenuContainer = discoverToggle.parentElement; // .has-megamenu li
+        const megaMenuClose = document.getElementById('mega-menu-close');
+
+        discoverToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = discoverToggle.getAttribute('aria-expanded') === 'true';
+            megaMenuContainer.classList.toggle('is-open');
+            discoverToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        megaMenuClose.addEventListener('click', () => {
+            megaMenuContainer.classList.remove('is-open');
+            discoverToggle.setAttribute('aria-expanded', 'false');
+        });
+        
+        // --- Scroll to Top Logic for Mega Menu ---
+        const megaMenuContent = document.getElementById('mega-menu-content');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        megaMenuContent.addEventListener('scroll', () => {
+            if (megaMenuContent.scrollTop > 150) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            megaMenuContent.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            document.body.classList.toggle('mobile-menu-open');
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuToggle.setAttribute('aria-label', !isExpanded ? 'Close menu' : 'Open menu');
+        });
+
+        // --- Mobile Accordion Logic for Mega Menu ---
+        const mobileDiscoverToggle = document.getElementById('mobile-discover-toggle');
+        const mobileMegaMenuContent = document.getElementById('mobile-megamenu-content');
+        
+        // Clone desktop mega menu content into mobile for maintainability
+        const desktopContent = document.querySelector('#mega-menu-content .mega-menu-grid').cloneNode(true);
+        mobileMegaMenuContent.appendChild(desktopContent);
+
+        mobileDiscoverToggle.addEventListener('click', () => {
+            const isExpanded = mobileDiscoverToggle.getAttribute('aria-expanded') === 'true';
+            mobileDiscoverToggle.setAttribute('aria-expanded', !isExpanded);
+            
+            if (!isExpanded) {
+                // To open
+                mobileMegaMenuContent.style.maxHeight = mobileMegaMenuContent.scrollHeight + "px";
+            } else {
+                // To close
+                mobileMegaMenuContent.style.maxHeight = '0';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
