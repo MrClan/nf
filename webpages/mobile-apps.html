@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Mobile Apps</title>
+  <meta name="description" content="Mobile apps released or supported by NHRC.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+  <style>
+    .highlight {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .device-frame {
+      background: #0a4595;
+      border-radius: 18px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid var(--color-border);
+      padding: 10px;
+      background: #fff;
+      text-align: left;
+    }
+    .apps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .app-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .platform {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      margin-right: 6px;
+      font-size: 13px;
+    }
+    .faq-acc {
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 10px;
+    }
+    @media (max-width: 900px) {
+      .highlight { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html">Home</a></li>
+        <li><a href="health-guidelines.html">Health Guidelines</a></li>
+        <li><a href="clinical-tools.html">Clinical Tools</a></li>
+        <li><a href="educational-materials.html">Educational Materials</a></li>
+        <li><a href="training-programs.html">Training Programs</a></li>
+        <li><a href="mobile-apps.html" aria-current="page">Mobile Apps</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mega Menu -->
+    <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
+      <div class="mega-menu-container">
+        <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
+        <div class="mega-menu-grid">
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-about">
+              About
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-about">
+              <a href="about-us.html" class="mega-menu-item">About Us</a>
+              <a href="objectives.html" class="mega-menu-item">Objectives</a>
+              <a href="activities.html" class="mega-menu-item">Activities</a>
+              <a href="past-presidents.html" class="mega-menu-item">Past Presidents</a>
+              <a href="executive-board.html" class="mega-menu-item">Executive Board</a>
+              <a href="staff.html" class="mega-menu-item">Staff</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-ethics">
+              Ethics
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-ethics">
+              <a href="ethics.html" class="mega-menu-item">Ethics</a>
+              <a href="erb.html" class="mega-menu-item">Ethical Review Board</a>
+              <a href="irc.html" class="mega-menu-item">Institutional Review Committee</a>
+              <a href="ethical-review-process.html" class="mega-menu-item">Ethical Review Process</a>
+              <a href="irerp.html" class="mega-menu-item">IRERP</a>
+              <a href="faq.html" class="mega-menu-item">FAQ</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-research">
+              Research Areas
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-research">
+              <a href="infectious-diseases.html" class="mega-menu-item">Infectious Diseases</a>
+              <a href="chronic-disease-management.html" class="mega-menu-item">Chronic Disease Management</a>
+              <a href="mental-health-research.html" class="mega-menu-item">Mental Health Research</a>
+              <a href="environmental-health.html" class="mega-menu-item">Environmental Health</a>
+              <a href="digital-health-technologies.html" class="mega-menu-item">Digital Health Technologies</a>
+              <a href="genomics-precision.html" class="mega-menu-item">Genomics & Precision Medicine</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-publications">
+              Publications & Data
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-publications">
+              <a href="research-publications.html" class="mega-menu-item">Research Publications</a>
+              <a href="annual-reports.html" class="mega-menu-item">Annual Reports</a>
+              <a href="data-portal.html" class="mega-menu-item">Data Portal</a>
+              <a href="statistical-reports.html" class="mega-menu-item">Statistical Reports</a>
+              <a href="policy-briefs.html" class="mega-menu-item">Policy Briefs</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-resources">
+              Resources & Tools
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-resources">
+              <a href="health-guidelines.html" class="mega-menu-item">Health Guidelines</a>
+              <a href="clinical-tools.html" class="mega-menu-item">Clinical Tools</a>
+              <a href="educational-materials.html" class="mega-menu-item">Educational Materials</a>
+              <a href="training-programs.html" class="mega-menu-item">Training Programs</a>
+              <a href="mobile-apps.html" class="mega-menu-item">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-partnerships">
+              Partnerships
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-partnerships">
+              <a href="academic-collaborations.html" class="mega-menu-item">Academic Collaborations</a>
+              <a href="industry-partners.html" class="mega-menu-item">Industry Partners</a>
+              <a href="internepal-cooperation.html" class="mega-menu-item">InterNepal Cooperation</a>
+              <a href="community-organizations.html" class="mega-menu-item">Community Organizations</a>
+              <a href="grant-opportunities.html" class="mega-menu-item">Grant Opportunities</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-externals">
+              Externals
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-externals">
+              <a href="nhrc-digital-library.html" class="mega-menu-item">NHRC Digital Library</a>
+              <a href="fercap-2024.html" class="mega-menu-item">FERCAP 2024</a>
+              <a href="nepmed.html" class="mega-menu-item">NepMed</a>
+              <a href="summit.html" class="mega-menu-item">Summit</a>
+              <a href="education-sub-committee.html" class="mega-menu-item">Education Sub-Committee</a>
+            </div>
+          </div>
+
+          <div class="go-up" id="scroll-to-top">
+            &uarr; </div>
+          <div class="go-up">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main" aria-label="Mobile apps">
+    <section class="section" aria-label="Featured app" style="padding-top:28px;">
+      <div class="container">
+        <div class="highlight">
+          <div class="device-frame" aria-label="Device mockup">App Preview</div>
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px;">NHRC Telehealth</h2>
+            <p class="card-text">Secure consultations connecting rural clinics with specialists; supports messaging and file sharing with audit trails.</p>
+            <div class="doc-meta" style="margin:6px 0;"><span>Android / iOS</span><span>Updated Jan 2025</span></div>
+            <a class="btn-primary" href="#">Get App</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="compare-title">App Comparison</h2>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="compare-table" aria-label="App comparison">
+            <thead><tr><th>App</th><th>Platforms</th><th>Offline</th><th>Languages</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td>NHRC Telehealth</td><td>Android / iOS</td><td>Partial</td><td>EN/NP</td><td>Remote consults</td></tr>
+              <tr><td>mSurveillance</td><td>Android</td><td>Yes</td><td>EN/NP</td><td>Community surveillance</td></tr>
+              <tr><td>Maternal Care Companion</td><td>Android</td><td>Yes</td><td>EN/NP</td><td>ANC/PNC support</td></tr>
+              <tr><td>LearnHealth</td><td>Android / iOS</td><td>Yes</td><td>EN</td><td>Learning modules</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apps" role="region" aria-labelledby="apps-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="apps-title">App Library</h2>
+          <a href="#" class="view-all-btn">All Releases</a>
+        </div>
+        <div class="apps-list">
+          <div class="app-card">
+            <h3 class="card-title">NHRC Telehealth</h3>
+            <p class="card-text">Remote consults, secure messaging, file sharing.</p>
+            <div><span class="platform">Android</span><span class="platform">iOS</span></div>
+            <a class="card-link" href="#">Get App</a>
+          </div>
+          <div class="app-card">
+            <h3 class="card-title">mSurveillance</h3>
+            <p class="card-text">Priority disease reporting and dashboards for field teams.</p>
+            <div><span class="platform">Android</span></div>
+            <a class="card-link" href="#">Get App</a>
+          </div>
+          <div class="app-card">
+            <h3 class="card-title">Maternal Care Companion</h3>
+            <p class="card-text">ANC/PNC reminders, checklists, and counseling tips.</p>
+            <div><span class="platform">Android</span></div>
+            <a class="card-link" href="#">Get App</a>
+          </div>
+          <div class="app-card">
+            <h3 class="card-title">LearnHealth</h3>
+            <p class="card-text">Micro-learning, quizzes, certificates for CPD.</p>
+            <div><span class="platform">Android</span><span class="platform">iOS</span></div>
+            <a class="card-link" href="#">Get App</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faq-title">Support & FAQ</h2>
+        </div>
+        <div class="faq-acc">
+          <h3 class="card-title">How do I request access?</h3>
+          <p class="card-text">Use the “Get App” link and follow onboarding prompts; institutional accounts can be requested via NHRC.</p>
+        </div>
+        <div class="faq-acc">
+          <h3 class="card-title">Are apps available offline?</h3>
+          <p class="card-text">Most features support offline data entry with sync when connectivity returns.</p>
+        </div>
+        <div class="faq-acc">
+          <h3 class="card-title">Which languages are supported?</h3>
+          <p class="card-text">English and Nepali for core apps; see comparison table for specifics.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+

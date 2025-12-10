@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Training Programs</title>
+  <meta name="description" content="Courses, curriculum structure, and schedule blocks.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+  <style>
+    .intro-strip {
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      padding: 14px 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .timeline-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .course-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .chip {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 14px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      margin-right: 6px;
+      font-size: 13px;
+    }
+    .mini-calendar {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(32px, 1fr));
+      gap: 6px;
+    }
+    .day {
+      text-align: center;
+      padding: 8px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .intro-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html">Home</a></li>
+        <li><a href="health-guidelines.html">Health Guidelines</a></li>
+        <li><a href="clinical-tools.html">Clinical Tools</a></li>
+        <li><a href="educational-materials.html">Educational Materials</a></li>
+        <li><a href="training-programs.html" aria-current="page">Training Programs</a></li>
+        <li><a href="mobile-apps.html">Mobile Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main" aria-label="Training programs">
+    <section class="section" aria-label="Program intro" style="padding-top:28px;">
+      <div class="container">
+        <div class="intro-strip">
+          <div>
+            <h2 class="section-title" style="margin-bottom:6px;">Training Programs</h2>
+            <p class="card-text">Structured courses with curriculum blocks, clear schedules, and enrollment guidance.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn-primary" href="#">View calendar</a>
+            <a class="view-all-btn" href="#">Submit interest</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" role="region" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="timeline-title">Upcoming Timeline</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-card">
+            <h3 class="card-title">Jan</h3>
+            <p class="card-text">Research Methods Bootcamp (4 weeks, blended).</p>
+            <div class="chip">Monthly</div>
+          </div>
+          <div class="timeline-card">
+            <h3 class="card-title">Feb</h3>
+            <p class="card-text">Ethics & Compliance (2 days, cases + role play).</p>
+            <div class="chip">Bi-monthly</div>
+          </div>
+          <div class="timeline-card">
+            <h3 class="card-title">Apr</h3>
+            <p class="card-text">Digital Health & AI (3 days, telehealth + interoperability).</p>
+            <div class="chip">Quarterly</div>
+          </div>
+          <div class="timeline-card">
+            <h3 class="card-title">May</h3>
+            <p class="card-text">Field Epidemiology Essentials (1 week, outbreak drills).</p>
+            <div class="chip">Quarterly</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="courses" role="region" aria-labelledby="courses-title" style="background:#f8f9fa;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="courses-title">Course Catalog</h2>
+        </div>
+        <div class="course-list">
+          <div class="course-card">
+            <h3 class="card-title">Research Methods Bootcamp</h3>
+            <p class="card-text">Design, sampling, ethics, data management; capstone mini-protocol.</p>
+            <div><span class="chip">4 weeks</span><span class="chip">Blended</span></div>
+          </div>
+          <div class="course-card">
+            <h3 class="card-title">Ethics & Compliance</h3>
+            <p class="card-text">Consent, data protection, safety reporting; interactive casework.</p>
+            <div><span class="chip">2 days</span><span class="chip">Workshop</span></div>
+          </div>
+          <div class="course-card">
+            <h3 class="card-title">Digital Health & AI</h3>
+            <p class="card-text">Telehealth rollout, interoperability basics, AI risk governance.</p>
+            <div><span class="chip">3 days</span><span class="chip">In-person</span></div>
+          </div>
+          <div class="course-card">
+            <h3 class="card-title">Field Epidemiology Essentials</h3>
+            <p class="card-text">Outbreak investigation drills, surveillance data use, rapid response.</p>
+            <div><span class="chip">1 week</span><span class="chip">Blended</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" role="region" aria-labelledby="calendar-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="calendar-title">Mini Calendar</h2>
+        </div>
+        <div class="mini-calendar" aria-label="Month view">
+          <div class="day">M</div><div class="day">T</div><div class="day">W</div><div class="day">T</div><div class="day">F</div><div class="day">S</div><div class="day">S</div>
+          <div class="day">1</div><div class="day">2</div><div class="day" style="background:#eef4ff;">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+          <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day" style="background:#eef4ff;">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+          <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day" style="background:#eef4ff;">19</div><div class="day">20</div><div class="day">21</div>
+          <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+          <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+

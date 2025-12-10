@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Clinical Tools</title>
+  <meta name="description" content="Clinical tools, calculators, and downloadable forms.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+  <style>
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .toolbar input {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+    }
+    .pill {
+      padding: 8px 12px;
+      border-radius: 16px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      font-size: 14px;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .tool-tile {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: 8px;
+    }
+    .tool-meta { font-size: 14px; color: var(--color-text-light); display: flex; gap: 10px; flex-wrap: wrap; }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid var(--color-border);
+      padding: 10px;
+      text-align: left;
+      background: #fff;
+    }
+    .download-drawer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .drawer-item {
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html">Home</a></li>
+        <li><a href="health-guidelines.html">Health Guidelines</a></li>
+        <li><a href="clinical-tools.html" aria-current="page">Clinical Tools</a></li>
+        <li><a href="educational-materials.html">Educational Materials</a></li>
+        <li><a href="training-programs.html">Training Programs</a></li>
+        <li><a href="mobile-apps.html">Mobile Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main" aria-label="Clinical tools">
+    <section class="section" aria-label="Quick launch tools" style="padding-top:28px;">
+      <div class="container">
+        <div class="toolbar">
+          <input type="search" placeholder="Search tools, calculators, forms…" aria-label="Search tools">
+          <span class="pill">Calculator</span>
+          <span class="pill">Checklist</span>
+          <span class="pill">Poster</span>
+          <a class="view-all-btn" href="#">Submit a tool</a>
+        </div>
+        <div class="tool-grid">
+          <div class="tool-tile">
+            <h3 class="card-title">BMI & Nutritional Risk</h3>
+            <p class="card-text">Adult/adolescent BMI with risk interpretation and counseling prompts.</p>
+            <div class="tool-meta"><span>Calculator</span><span>Offline ready</span></div>
+            <a class="card-link" href="#">Open</a>
+          </div>
+          <div class="tool-tile">
+            <h3 class="card-title">Hypertension Visit Checklist</h3>
+            <p class="card-text">Structured visit workflow: meds review, counseling, referral triggers.</p>
+            <div class="tool-meta"><span>PDF</span><span>Clinic</span></div>
+            <a class="card-link" href="#">Download</a>
+          </div>
+          <div class="tool-tile">
+            <h3 class="card-title">Maternal Danger Signs Poster</h3>
+            <p class="card-text">Poster and handout for counseling on danger signs and emergency actions.</p>
+            <div class="tool-meta"><span>Poster</span><span>Community</span></div>
+            <a class="card-link" href="#">Preview</a>
+          </div>
+          <div class="tool-tile">
+            <h3 class="card-title">Pediatric Dosage Aid</h3>
+            <p class="card-text">Weight-band dosing reference for essential pediatric medicines.</p>
+            <div class="tool-meta"><span>PDF</span><span>Clinic</span></div>
+            <a class="card-link" href="#">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="compare-title">Compare Popular Tools</h2>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="compare-table" aria-label="Tool comparison">
+            <thead>
+              <tr><th>Tool</th><th>Format</th><th>Offline</th><th>Languages</th><th>Link</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>BMI & Nutritional Risk</td><td>Calculator</td><td>Yes</td><td>EN/NP</td><td><a href="#">Open</a></td></tr>
+              <tr><td>Hypertension Checklist</td><td>PDF</td><td>Yes</td><td>EN/NP</td><td><a href="#">Download</a></td></tr>
+              <tr><td>Maternal Danger Signs</td><td>Poster</td><td>Yes</td><td>EN/NP</td><td><a href="#">Preview</a></td></tr>
+              <tr><td>Pediatric Dosage Aid</td><td>PDF</td><td>Yes</td><td>EN</td><td><a href="#">Download</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" role="region" aria-labelledby="downloads-title" style="padding-top:24px;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="downloads-title">Download Drawer</h2>
+        </div>
+        <div class="download-drawer">
+          <div class="drawer-item">
+            <h3 class="card-title">Referral Form</h3>
+            <p class="card-text">Standard referral template for inter-facility transfers.</p>
+            <a class="card-link" href="#">Download</a>
+          </div>
+          <div class="drawer-item">
+            <h3 class="card-title">Adverse Event Log</h3>
+            <p class="card-text">Record format for AEFI and pharmacovigilance reporting.</p>
+            <a class="card-link" href="#">Download</a>
+          </div>
+          <div class="drawer-item">
+            <h3 class="card-title">TB Contact Tracing Sheet</h3>
+            <p class="card-text">Household contact register with follow-up fields.</p>
+            <a class="card-link" href="#">Download</a>
+          </div>
+          <div class="drawer-item">
+            <h3 class="card-title">Facility Readiness Checklist</h3>
+            <p class="card-text">Quick readiness assessment for primary care sites.</p>
+            <a class="card-link" href="#">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+

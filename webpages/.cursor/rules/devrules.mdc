@@ -1,5 +1,5 @@
 ---
-alwaysApply: false
+alwaysApply: true
 ---
 # Cursor Rules for Generating New Responsive HTML Pages
 # -----------------------------------------------------
@@ -32,7 +32,8 @@ system:
   - When generating content, use placeholders for any dynamic data (e.g., loops, fetched items, DB results).
 
   - All pages must remain visually unified with existing site design. Reuse:
-      • Cards
+      • Menus (all pages should have same top menu, mega menu and footer menu)
+      • Cards      
       • Grids
       • Typography scale
       • Shadows

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Educational Materials</title>
+  <meta name="description" content="Videos, manuals, training kits, and poster placeholders.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+  <style>
+    .featured-media {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .media-frame {
+      background: #0a4595;
+      border-radius: 12px;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+    }
+    .masonry {
+      column-count: 2;
+      column-gap: 16px;
+    }
+    .masonry .card {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 16px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 14px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      font-size: 13px;
+      margin-right: 6px;
+    }
+    .paths {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .path-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 900px) {
+      .featured-media { grid-template-columns: 1fr; }
+      .masonry { column-count: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html">Home</a></li>
+        <li><a href="health-guidelines.html">Health Guidelines</a></li>
+        <li><a href="clinical-tools.html">Clinical Tools</a></li>
+        <li><a href="educational-materials.html" aria-current="page">Educational Materials</a></li>
+        <li><a href="training-programs.html">Training Programs</a></li>
+        <li><a href="mobile-apps.html">Mobile Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main" aria-label="Educational materials">
+    <section class="section" aria-label="Featured media" style="padding-top:28px;">
+      <div class="container">
+        <div class="featured-media">
+          <div class="media-frame" aria-label="Video placeholder">16:9 Video</div>
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px;">Featured Training Clip</h2>
+            <p class="card-text">Hand hygiene steps for facilities and communities, with visual cues and narration in EN/NP.</p>
+            <div class="doc-meta" style="margin:8px 0;"><span>Video</span><span>Updated Jan 2025</span></div>
+            <a class="btn-primary" href="#">Play Video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="materials" role="region" aria-labelledby="materials-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="materials-title">Resource Gallery</h2>
+          <a href="#" class="view-all-btn">Download All</a>
+        </div>
+        <div class="masonry">
+          <article class="card">
+            <div class="card-content">
+              <div class="badge">Video</div>
+              <h3 class="card-title">Hand Hygiene Video</h3>
+              <p class="card-text">Short training clip with the WHO steps and community tips.</p>
+              <a class="card-link" href="#">Preview</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-content">
+              <div class="badge">Manual</div>
+              <h3 class="card-title">Maternal Care Manual</h3>
+              <p class="card-text">ANC/PNC workflow, counseling, referral criteria, and danger signs.</p>
+              <a class="card-link" href="#">Download</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-content">
+              <div class="badge">Kit</div>
+              <h3 class="card-title">Training Kit: Community Health</h3>
+              <p class="card-text">Slides, facilitator notes, worksheets, and pre/post tests.</p>
+              <a class="card-link" href="#">Download</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-content">
+              <div class="badge">Poster</div>
+              <h3 class="card-title">Immunization Schedule Poster</h3>
+              <p class="card-text">Wall poster template with routine immunization milestones.</p>
+              <a class="card-link" href="#">Preview</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-content">
+              <div class="badge">Guide</div>
+              <h3 class="card-title">Data Collection Guide</h3>
+              <p class="card-text">Field data tips, consent prompts, and data quality checks.</p>
+              <a class="card-link" href="#">Download</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="paths-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="paths-title">Learning Paths</h2>
+        </div>
+        <div class="paths">
+          <div class="path-card">
+            <h3 class="card-title">Infection Prevention Basics</h3>
+            <p class="card-text">Video + quiz + poster set; completion time ~1 hour.</p>
+            <a class="card-link" href="#">Start Path</a>
+          </div>
+          <div class="path-card">
+            <h3 class="card-title">Maternal Care Foundations</h3>
+            <p class="card-text">Manual + kit + practice checklist; completion time ~2 hours.</p>
+            <a class="card-link" href="#">Start Path</a>
+          </div>
+          <div class="path-card">
+            <h3 class="card-title">Community Health Outreach</h3>
+            <p class="card-text">Slides + worksheets + role-plays; completion time ~90 minutes.</p>
+            <a class="card-link" href="#">Start Path</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+

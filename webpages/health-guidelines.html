@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - Health Guidelines</title>
+  <meta name="description" content="Guidelines library with categories and document previews.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+  <style>
+    .guideline-spotlight {
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+
+    .guideline-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+    }
+
+    .filter-panel {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-panel h3 {
+      margin-bottom: 12px;
+    }
+
+    .filter-chip {
+      display: inline-block;
+      margin: 4px 6px 4px 0;
+      padding: 6px 10px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      border-radius: 16px;
+      font-size: 14px;
+    }
+
+    .doc-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .doc-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-meta {
+      color: var(--color-text-light);
+      font-size: 14px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .recent-strip {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .recent-chip {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      padding: 10px 12px;
+      border-radius: 10px;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 960px) {
+      .guideline-layout {
+        grid-template-columns: 1fr;
+      }
+      .doc-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html">Home</a></li>
+        <li><a href="health-guidelines.html" aria-current="page">Health Guidelines</a></li>
+        <li><a href="clinical-tools.html">Clinical Tools</a></li>
+        <li><a href="educational-materials.html">Educational Materials</a></li>
+        <li><a href="training-programs.html">Training Programs</a></li>
+        <li><a href="mobile-apps.html">Mobile Apps</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mega Menu -->
+    <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
+      <div class="mega-menu-container">
+        <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
+        <div class="mega-menu-grid">
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-about">
+              About
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-about">
+              <a href="about-us.html" class="mega-menu-item">About Us</a>
+              <a href="objectives.html" class="mega-menu-item">Objectives</a>
+              <a href="activities.html" class="mega-menu-item">Activities</a>
+              <a href="past-presidents.html" class="mega-menu-item">Past Presidents</a>
+              <a href="executive-board.html" class="mega-menu-item">Executive Board</a>
+              <a href="staff.html" class="mega-menu-item">Staff</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-ethics">
+              Ethics
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-ethics">
+              <a href="ethics.html" class="mega-menu-item">Ethics</a>
+              <a href="erb.html" class="mega-menu-item">Ethical Review Board</a>
+              <a href="irc.html" class="mega-menu-item">Institutional Review Committee</a>
+              <a href="ethical-review-process.html" class="mega-menu-item">Ethical Review Process</a>
+              <a href="irerp.html" class="mega-menu-item">IRERP</a>
+              <a href="faq.html" class="mega-menu-item">FAQ</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-research">
+              Research Areas
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-research">
+              <a href="infectious-diseases.html" class="mega-menu-item">Infectious Diseases</a>
+              <a href="chronic-disease-management.html" class="mega-menu-item">Chronic Disease Management</a>
+              <a href="mental-health-research.html" class="mega-menu-item">Mental Health Research</a>
+              <a href="environmental-health.html" class="mega-menu-item">Environmental Health</a>
+              <a href="digital-health-technologies.html" class="mega-menu-item">Digital Health Technologies</a>
+              <a href="genomics-precision.html" class="mega-menu-item">Genomics & Precision Medicine</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-publications">
+              Publications & Data
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-publications">
+              <a href="research-publications.html" class="mega-menu-item">Research Publications</a>
+              <a href="annual-reports.html" class="mega-menu-item">Annual Reports</a>
+              <a href="data-portal.html" class="mega-menu-item">Data Portal</a>
+              <a href="statistical-reports.html" class="mega-menu-item">Statistical Reports</a>
+              <a href="policy-briefs.html" class="mega-menu-item">Policy Briefs</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-resources">
+              Resources & Tools
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-resources">
+              <a href="health-guidelines.html" class="mega-menu-item">Health Guidelines</a>
+              <a href="clinical-tools.html" class="mega-menu-item">Clinical Tools</a>
+              <a href="educational-materials.html" class="mega-menu-item">Educational Materials</a>
+              <a href="training-programs.html" class="mega-menu-item">Training Programs</a>
+              <a href="mobile-apps.html" class="mega-menu-item">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-partnerships">
+              Partnerships
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-partnerships">
+              <a href="academic-collaborations.html" class="mega-menu-item">Academic Collaborations</a>
+              <a href="industry-partners.html" class="mega-menu-item">Industry Partners</a>
+              <a href="internepal-cooperation.html" class="mega-menu-item">InterNepal Cooperation</a>
+              <a href="community-organizations.html" class="mega-menu-item">Community Organizations</a>
+              <a href="grant-opportunities.html" class="mega-menu-item">Grant Opportunities</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-externals">
+              Externals
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-externals">
+              <a href="nhrc-digital-library.html" class="mega-menu-item">NHRC Digital Library</a>
+              <a href="fercap-2024.html" class="mega-menu-item">FERCAP 2024</a>
+              <a href="nepmed.html" class="mega-menu-item">NepMed</a>
+              <a href="summit.html" class="mega-menu-item">Summit</a>
+              <a href="education-sub-committee.html" class="mega-menu-item">Education Sub-Committee</a>
+            </div>
+          </div>
+
+          <div class="go-up" id="scroll-to-top">&uarr; </div>
+          <div class="go-up">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main" aria-label="Health guidelines library">
+    <section class="section" aria-label="Guideline spotlight">
+      <div class="container">
+        <div class="guideline-spotlight">
+          <strong>Spotlight:</strong> National IPC guideline updated for 2025 — includes PPE, isolation, and waste pathways. <a
+            href="#" class="card-link">Preview</a>
+        </div>
+        <div class="recent-strip" aria-label="Recently updated">
+          <div class="recent-chip">Maternal nutrition • Jan 2025</div>
+          <div class="recent-chip">Hypertension pathway • Dec 2024</div>
+          <div class="recent-chip">WASH advisory • Dec 2024</div>
+          <div class="recent-chip">TB contact tracing • Nov 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="library" role="region" aria-labelledby="library-title" style="padding-top:20px;">
+      <div class="container guideline-layout">
+        <aside class="filter-panel" aria-label="Filters">
+          <h3>Filter by category</h3>
+          <div class="filter-chip">Communicable</div>
+          <div class="filter-chip">NCD</div>
+          <div class="filter-chip">Maternal & Child</div>
+          <div class="filter-chip">Environmental</div>
+          <div class="filter-chip">Emergency</div>
+          <h3 style="margin-top:16px;">Format</h3>
+          <div class="filter-chip">PDF</div>
+          <div class="filter-chip">Doc</div>
+          <div class="filter-chip">Slide</div>
+        </aside>
+
+        <div>
+          <div class="section-header" style="margin-bottom:16px;">
+            <h2 class="section-title" id="library-title">Guideline Library</h2>
+            <a href="#" class="view-all-btn">Export List</a>
+          </div>
+          <div class="doc-list">
+            <div class="doc-item">
+              <div>
+                <h3 class="card-title">IPC Guideline (Facility)</h3>
+                <p class="card-text">Standard precautions, PPE, isolation rooms, and cleaning protocols for hospitals and PHCs.</p>
+                <div class="doc-meta">
+                  <span>PDF</span><span>Updated Jan 2025</span><span>Category: Communicable</span>
+                </div>
+              </div>
+              <div class="card-meta" style="flex-direction:column;align-items:flex-end;gap:6px;">
+                <a class="card-link" href="#">Preview</a>
+                <a class="card-link" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="doc-item">
+              <div>
+                <h3 class="card-title">Hypertension Care Pathway</h3>
+                <p class="card-text">Screening algorithm, referral triggers, drug titration, and follow-up intervals.</p>
+                <div class="doc-meta">
+                  <span>PDF</span><span>Updated Dec 2024</span><span>Category: NCD</span>
+                </div>
+              </div>
+              <div class="card-meta" style="flex-direction:column;align-items:flex-end;gap:6px;">
+                <a class="card-link" href="#">Preview</a>
+                <a class="card-link" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="doc-item">
+              <div>
+                <h3 class="card-title">Maternal Nutrition Brief</h3>
+                <p class="card-text">Supplementation schedule, counseling messages, and red-flag thresholds for escalation.</p>
+                <div class="doc-meta">
+                  <span>PDF</span><span>Updated Dec 2024</span><span>Category: Maternal & Child</span>
+                </div>
+              </div>
+              <div class="card-meta" style="flex-direction:column;align-items:flex-end;gap:6px;">
+                <a class="card-link" href="#">Preview</a>
+                <a class="card-link" href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="doc-item">
+              <div>
+                <h3 class="card-title">WASH & Environmental Health Advisory</h3>
+                <p class="card-text">Water safety, sanitation protocols, and climate resilience considerations for communities.</p>
+                <div class="doc-meta">
+                  <span>PDF</span><span>Updated Dec 2024</span><span>Category: Environmental</span>
+                </div>
+              </div>
+              <div class="card-meta" style="flex-direction:column;align-items:flex-end;gap:6px;">
+                <a class="card-link" href="#">Preview</a>
+                <a class="card-link" href="#">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div><img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image"></div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="health-guidelines.html">Health Guidelines</a></li>
+            <li><a href="clinical-tools.html">Clinical Tools</a></li>
+            <li><a href="educational-materials.html">Educational Materials</a></li>
+            <li><a href="training-programs.html">Training Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+
