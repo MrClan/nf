@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mobile_apps",
+  "info": {
+    "singularName": "mobile-app",
+    "pluralName": "mobile-apps",
+    "displayName": "Mobile App"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "platforms": {
+      "type": "json"
+    },
+    "storeUrl": {
+      "type": "string"
+    },
+    "updatedAtClient": {
+      "type": "date"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "irc_page_single",
+  "info": {
+    "singularName": "irc-page",
+    "pluralName": "irc-pages",
+    "displayName": "IRC Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "responsibilities": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "submissionChecklist": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "workflowSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    }
+  }
+}
+

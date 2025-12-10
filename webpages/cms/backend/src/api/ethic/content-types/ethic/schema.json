@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "ethics_single",
+  "info": {
+    "singularName": "ethic",
+    "pluralName": "ethics",
+    "displayName": "Ethics Overview"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "hero": {
+      "type": "component",
+      "component": "sections.hero-section"
+    },
+    "principles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "responsibilities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "quickLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    }
+  }
+}
+

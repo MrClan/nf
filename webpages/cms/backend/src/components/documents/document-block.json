@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_documents_document_blocks",
+  "info": {
+    "displayName": "Document Block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "summary": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "format": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "lastUpdated": {
+      "type": "date"
+    },
+    "linkUrl": {
+      "type": "string"
+    }
+  }
+}
+

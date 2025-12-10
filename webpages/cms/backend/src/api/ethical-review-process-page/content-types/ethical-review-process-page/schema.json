@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "ethical_review_process_page_single",
+  "info": {
+    "singularName": "ethical-review-process-page",
+    "pluralName": "ethical-review-process-pages",
+    "displayName": "Ethical Review Process Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "documents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "documents.document-block"
+    },
+    "approvalStages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    }
+  }
+}
+

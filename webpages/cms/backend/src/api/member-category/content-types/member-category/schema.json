@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_categories",
+  "info": {
+    "singularName": "member-category",
+    "pluralName": "member-categories",
+    "displayName": "Member Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member.member",
+      "mappedBy": "category"
+    }
+  }
+}
+
