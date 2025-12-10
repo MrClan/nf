@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NHRC - News</title>
+  <meta name="description" content="Latest news and updates from NHRC.">
+  <link rel="stylesheet" href="c1.css">
+  <link rel="stylesheet" href="print.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="c1.js" defer></script>
+</head>
+
+<body>
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#navigation">Skip to navigation</a>
+  </div>
+
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation" id="navigation">
+      <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+        <div>
+          <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu"
+        onclick="toggleMenu()">☰</button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="c1.html#about">Home</a></li>
+        <li><a href="c1.html#research">Research</a></li>
+        <li><a href="c1.html#news" aria-current="page">News</a></li>
+        <li><a href="c1.html#notices">Notices</a></li>
+        <li><a href="c1.html#partners">Partners</a></li>
+        <li class="discover-menu">
+          <a href="#" class="discover-toggle" onclick="toggleDiscoverMenu(event)" aria-expanded="false"
+            aria-haspopup="true" aria-controls="mega-menu">
+            Discover <span class="arrow">▾</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mega-menu" id="mega-menu" role="region" aria-label="Discover menu">
+      <div class="mega-menu-container">
+        <button class="mega-menu-close" onclick="closeDiscoverMenu()" aria-label="Close discover menu">✕</button>
+        <div class="mega-menu-grid">
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-news-about">
+              Newsroom
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-news-about">
+              <a href="news-listing.html" class="mega-menu-item">All News</a>
+              <a href="news-article.html" class="mega-menu-item">Sample Article</a>
+              <a href="objectives.html" class="mega-menu-item">Objectives</a>
+            </div>
+          </div>
+
+          <div class="mega-menu-category expanded">
+            <button class="mega-menu-category-header" onclick="toggleCategory(this)" aria-expanded="true"
+              aria-controls="mega-news-resources">
+              Resources
+              <span class="mega-menu-category-icon">▶</span>
+            </button>
+            <div class="mega-menu-category-content" id="mega-news-resources">
+              <a href="#" class="mega-menu-item">Press Kit</a>
+              <a href="#" class="mega-menu-item">Media Contacts</a>
+            </div>
+          </div>
+
+          <div class="go-up" id="scroll-to-top">&uarr;</div>
+          <div class="go-up">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main" aria-label="News listing">
+    <section class="hero" role="region" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <h2 id="hero-title">NHRC Newsroom</h2>
+          <p>Stay informed with the latest research highlights, policy updates, and announcements from NHRC.</p>
+          <a href="#news-list" class="btn-primary">Browse News</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-container" role="search" aria-label="Filter news">
+      <div class="search-wrapper">
+        <form class="search-form">
+          <label for="news-search" class="sr-only">Search news</label>
+          <input type="search" id="news-search" class="search-input" placeholder="Search news..." name="q">
+          <button type="submit" class="search-button" aria-label="Submit news search">🔍</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="news-list" role="region" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="news-title">All News</h2>
+          <a href="#" class="view-all-btn">Submit a Story</a>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Healthcare innovation" style="background-image: url('images/sample.avif');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Telehealth Expansion Reaches Rural Communities</h3>
+              <p class="card-text">NHRC-backed pilot connects remote clinics with specialists, reducing referral delays and improving outcomes for rural patients across Nepal...</p>
+              <div class="card-meta">
+                <span>Jan 8, 2025</span>
+                <a href="news-article.html" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Community program" style="background-image: url('images/news3.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">Community Vaccination Drive Achieves 95% Coverage</h3>
+              <p class="card-text">Coordinated outreach and mobile units helped deliver timely vaccinations, with strong community engagement and data-driven monitoring...</p>
+              <div class="card-meta">
+                <span>Jan 4, 2025</span>
+                <a href="news-article.html" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="bg-cover" role="img" aria-label="Lab research" style="background-image: url('images/team.jpg');"></div>
+            <div class="card-content">
+              <h3 class="card-title">AI-Assisted Diagnostics Trial Shows Early Promise</h3>
+              <p class="card-text">Preliminary findings indicate faster triage and improved diagnostic confidence in pilot hospitals using AI-assisted tools...</p>
+              <div class="card-meta">
+                <span>Dec 28, 2024</span>
+                <a href="news-article.html" class="card-link">Read More</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-header" style="float:right;">
+          <a href="#" class="view-all-btn2">Load More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="c1.html" class="logo" aria-label="Nepal Health Research Council - NHRC Nepal">
+          <div>
+            <img src="images/logo-nhrc.png" alt="Nepal Health Research Council - NHRC" class="logo-image">
+          </div>
+        </a>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+97715354220">Phone: 977-1-5354220 / 977-1-5327460 / 977-1-5346008</a></li>
+            <li><a href="mailto:nhrc@nhrc.gov.np">Email: nhrc@nhrc.gov.np</a></li>
+            <li><a href="#">Ramshah Path, Kathmandu, Nepal</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="news-listing.html">News</a></li>
+            <li><a href="news-article.html">Sample Article</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="footer-links">
+            <li><a href="#" aria-label="Follow us on Twitter">Twitter</a></li>
+            <li><a href="#" aria-label="Follow us on Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Follow us on Google Plus">Google Plus</a></li>
+            <li><a href="#" aria-label="Follow us on YouTube">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Informed</h3>
+          <ul class="footer-links">
+            <li><a href="#">Subscribe to Newsletter</a></li>
+            <li><a href="#">RSS Feed</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <span>Developed by</span>
+          <span style="color: #00bcd4; font-size: 20px;">MrClan</span>
+        </div>
+        <p style="margin-top: 10px;">&copy; 2024 Health & Research Hub. All rights reserved. | <a href="#"
+            style="color: #00bcd4;">Privacy Policy</a> | <a href="#" style="color: #00bcd4;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+

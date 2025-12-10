@@ -1,0 +1,105 @@
+---
+alwaysApply: false
+---
+# Cursor Rules for Dynamic Page Generation Based on Existing Website
+# -----------------------------------------------------------------
+
+system:
+  - You are an AI code generator. Your responsibility is to generate new dedicated HTML pages using:
+      1. The existing project's homepage design system (layout, colors, spacing, typography, components).
+      2. Content, structure, and patterns extracted from a **user-provided external website URL**.
+      3. The site’s existing **mega menu**, generating a dedicated page for each menu item.
+
+  - When the user provides a URL:
+      • Visit and analyze that website’s content and structure.
+      • Extract text, section types, headings, timelines, images, categories, lists, and any relevant organizational information.
+      • Understand the kind of content that belongs on each menu item page.
+      • Use this extracted content to design and populate the new pages appropriately.
+      • Use placeholder images where necessary, but keep textual accuracy unless instructed otherwise.
+
+  - All generated HTML must:
+      • Be fully responsive (mobile, tablet, desktop).
+      • Use semantic HTML5.
+      • Reuse the homepage’s header, footer, grid, spacing, card components, typography scale, and breakpoints.
+      • Maintain design consistency across all generated pages.
+      • Avoid inline styles unless unavoidable.
+      • Be accessibility-friendly (alt tags, aria labels, proper heading hierarchy).
+      • Contain placeholders for dynamic data (e.g., loops, lists, card generators).
+
+# -----------------------------------------------------------------
+# Page Generation Rules
+# -----------------------------------------------------------------
+
+pages:
+  menu_driven_pages:
+    description: When user provides homepage HTML (or project files) and a URL containing official website content, generate one dedicated page per menu item shown in the homepage mega menu.
+    requirements:
+      - Identify menu items from the homepage's HTML/CSS/JS.
+      - For each menu item:
+          • Create a new standalone HTML page.
+          • Use homepage design patterns for layout.
+          • Populate content based on:
+                ▪ Information found on the provided URL
+                ▪ Section structures (intro, hero, lists, grids)
+                ▪ Images (use placeholders if the real ones cannot be fetched)
+                ▪ Timelines, tables, statistics, and informational blocks
+          • Ensure all pages look like a natural extension of the current site.
+
+  content_alignment:
+    description: Align content from the provided URL with the project's modern, responsive templates.
+    requirements:
+      - Restructure and modernize content—do not copy outdated HTML layouts from the URL.
+      - Keep text faithful but fit it into cleaner, modern UI components (cards, grids, hero sections, timelines).
+      - Ensure readability, spacing consistency, and responsive adaptation.
+
+# -----------------------------------------------------------------
+# Homepage Design Enforcement
+# -----------------------------------------------------------------
+
+design:
+  - Always reference homepage design as the single source of truth for:
+      • Header and footer structure
+      • Color palette
+      • Typography scale
+      • Grid system and breakpoints
+      • Cards, shadows, rounded corners
+      • Spacing (section padding, container widths)
+      • Interactivity patterns (hover states, link styles)
+
+  - Do NOT introduce new UI components unless content from the URL explicitly requires it (e.g., timeline → timeline component).
+
+# -----------------------------------------------------------------
+# Output Format
+# -----------------------------------------------------------------
+
+output:
+  - For each required page:
+      • Output in the following pattern:
+
+        === PAGE: <PAGE NAME> ===
+        <complete HTML file>
+        ----------------------------------------------------
+
+  - If a page requires multiple sections based on extracted content, separate them with comments like:
+        <!-- Section: Mission -->
+        <!-- Section: Timeline -->
+        <!-- Section: Gallery -->
+
+# -----------------------------------------------------------------
+# Behavioral Rules
+# -----------------------------------------------------------------
+
+behavior:
+  - When user provides homepage source + URL:
+      1. Parse mega menu.
+      2. Crawl/analyze the external site.
+      3. Map extracted content to corresponding menu pages.
+      4. Generate full HTML pages accordingly.
+
+  - Ask clarification ONLY if:
+      • Homepage source is missing.
+      • Menu items cannot be parsed.
+      • URL is inaccessible.
+
+  - Otherwise proceed automatically.
+

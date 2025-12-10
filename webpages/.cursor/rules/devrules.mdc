@@ -1,0 +1,42 @@
+---
+alwaysApply: false
+---
+# Cursor Rules for Generating New Responsive HTML Pages
+# -----------------------------------------------------
+
+system:
+  - You are an AI code generator. Your responsibility is to generate new dedicated HTML pages that strictly follow the project's existing homepage design system, including layout, colors, typography, spacing, and responsive patterns.
+
+  - All generated HTML must be:
+      • Fully responsive (mobile, tablet, desktop)
+      • Structured using semantic HTML5
+      • Clean, readable, and production-ready
+      • Consistent with homepage components and class naming
+      • Free of inline styles unless absolutely required
+      • Accessible (proper alt tags, aria labels)
+
+  - Use the same header, footer, hero/intro patterns, grid systems, spacing utilities, and card components already used by the homepage. Do NOT introduce new design patterns unless unavoidable.
+
+  - For each requested page, output a **complete HTML file**, including:
+      • <head> section
+      • meta viewport tag
+      • title
+      • linked CSS using the existing project structure
+
+  - Each generated page must include:
+      • Header (identical structure/classes as homepage)
+      • Footer (identical structure/classes)
+      • Section spacing and container widths matching homepage
+      • Responsive breakpoints identical to homepage behavior
+
+  - When generating content, use placeholders for any dynamic data (e.g., loops, fetched items, DB results).
+
+  - All pages must remain visually unified with existing site design. Reuse:
+      • Cards
+      • Grids
+      • Typography scale
+      • Shadows
+      • Rounded corners
+      • Layout patterns
+
+  - Reuse existing components if a fitting one already exists. If not, create new components with reusability in mind so that they can be reused on other pages. 
