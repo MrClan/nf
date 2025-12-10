@@ -11,6 +11,39 @@
   <link rel="stylesheet" href="print.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <script src="c1.js" defer></script>
+  <style>
+    .step-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .step-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .doc-col {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .stage-card {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+  </style>
 </head>
 
 <body>
@@ -39,28 +72,40 @@
   </header>
 
   <main id="main-content" role="main" aria-label="Ethical review process">
-    <section class="hero" role="region" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Ethical Review Process</h2>
-          <p>Step-by-step flow, required documents, and approval stages for NHRC ethics review.</p>
-          <a href="#steps" class="btn-primary">See Steps</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="steps" role="region" aria-labelledby="steps-title">
+    <section class="section" aria-label="Process steps" style="padding-top:28px;">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" id="steps-title">Process Steps</h2>
         </div>
-        <div class="card-grid" style="grid-template-columns:1fr;">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Flow</h3>
-              <p class="card-text">1) Submission (protocol, consent, tools) → 2) Admin completeness check → 3) Reviewer assignment → 4) Ethics review (risk-benefit, consent, data protection) → 5) Committee decision (approve/conditions/modify/reject) → 6) Communication to PI → 7) Continuing review and reporting.</p>
-            </div>
-          </article>
+        <div class="step-list">
+          <div class="step-card">
+            <h3 class="card-title">1) Submission</h3>
+            <p class="card-text">Submit protocol, consent, participant materials, and data/safety plans.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">2) Admin Check</h3>
+            <p class="card-text">Completeness screening; routing to expedited or full review track.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">3) Reviewer Assignment</h3>
+            <p class="card-text">Primary/secondary reviewers matched to topic and methodology.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">4) Ethics Review</h3>
+            <p class="card-text">Risk-benefit, consent quality, data protection, vulnerable populations.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">5) Decision</h3>
+            <p class="card-text">Approve, approve with conditions, request modification, or reject.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">6) Communicate</h3>
+            <p class="card-text">Decision letter with conditions and timelines sent to PI.</p>
+          </div>
+          <div class="step-card">
+            <h3 class="card-title">7) Continuing Review</h3>
+            <p class="card-text">Renewals, amendments, safety reporting, site monitoring.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -70,19 +115,14 @@
         <div class="section-header">
           <h2 class="section-title" id="docs-title">Required Documents</h2>
         </div>
-        <div class="noticeboard-list">
-          <div class="notice-item">
-            <div class="notice-date">Protocol</div>
-            <div class="notice-content">Full protocol with objectives, methodology, risk mitigation, and data plan.</div>
-          </div>
-          <div class="notice-item">
-            <div class="notice-date">Consent</div>
-            <div class="notice-content">Informed consent/assent forms in relevant languages, including data use and withdrawal rights.</div>
-          </div>
-          <div class="notice-item">
-            <div class="notice-date">Materials</div>
-            <div class="notice-content">Questionnaires, recruitment materials, compensation details, and safety monitoring plan.</div>
-          </div>
+        <div class="doc-col">
+          <ul class="card-text" style="line-height:1.8;">
+            <li>Protocol: objectives, methodology, risk mitigation, data plan</li>
+            <li>Consent/assent forms; multilingual where relevant</li>
+            <li>Recruitment and participant materials</li>
+            <li>Compensation details and safety monitoring plan</li>
+            <li>Investigator qualifications and roles</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -92,25 +132,19 @@
         <div class="section-header">
           <h2 class="section-title" id="approvals-title">Approval Stages</h2>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Full Board</h3>
-              <p class="card-text">For higher-risk studies; discussed in convened meetings.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Expedited</h3>
-              <p class="card-text">Minimal risk studies may undergo expedited review by designated reviewers.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Exemption</h3>
-              <p class="card-text">Specific low-risk categories may be exempt, with documentation retained by NHRC.</p>
-            </div>
-          </article>
+        <div class="stage-grid">
+          <div class="stage-card">
+            <h3 class="card-title">Full Board</h3>
+            <p class="card-text">Higher-risk studies discussed in convened meetings with quorum.</p>
+          </div>
+          <div class="stage-card">
+            <h3 class="card-title">Expedited</h3>
+            <p class="card-text">Minimal-risk protocols reviewed by designated reviewers.</p>
+          </div>
+          <div class="stage-card">
+            <h3 class="card-title">Exempt</h3>
+            <p class="card-text">Specific low-risk categories documented and archived by NHRC.</p>
+          </div>
         </div>
       </div>
     </section>

@@ -11,6 +11,35 @@
   <link rel="stylesheet" href="print.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <script src="c1.js" defer></script>
+  <style>
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .panel {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stepper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+    }
+    .step {
+      border-left: 3px solid var(--color-primary);
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 900px) {
+      .split-layout { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
@@ -39,79 +68,66 @@
   </header>
 
   <main id="main-content" role="main" aria-label="Institutional Review Committee">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+    <section class="section" aria-label="Responsibilities and submission" style="padding-top:28px;">
       <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Institutional Review Committee (IRC)</h2>
-          <p>Responsibilities, submission guidelines, and workflow for institutional-level ethical review.</p>
-          <a href="#workflow" class="btn-primary">View Workflow</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="responsibilities" role="region" aria-labelledby="resp-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="resp-title">Responsibilities</h2>
-          <a href="#submission" class="view-all-btn">Submission Guide</a>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Ethical Oversight</h3>
-              <p class="card-text">Ensure protocols meet ethical standards, protect participants, and comply with NHRC policies.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Local Governance</h3>
-              <p class="card-text">Coordinate with host institutions to maintain review records, approvals, and continuing review.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Capacity Building</h3>
-              <p class="card-text">Support training on consent, data protection, safety reporting, and community engagement.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="submission" style="background:#f8f9fa;" role="region" aria-labelledby="submission-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="submission-title">Submission Guidelines</h2>
-        </div>
-        <div class="noticeboard-list">
-          <div class="notice-item">
-            <div class="notice-date">Forms</div>
-            <div class="notice-content">Completed protocol, informed consent forms, participant materials, data plan.</div>
+        <div class="split-layout">
+          <div class="panel">
+            <h2 class="section-title" id="resp-title" style="margin-bottom:10px;">Responsibilities</h2>
+            <ul class="card-text" style="line-height:1.8;">
+              <li>Ethical oversight of local protocols; participant protections.</li>
+              <li>Maintain records of approvals, amendments, and continuing review.</li>
+              <li>Coordinate with investigators on consent, safety, and data practices.</li>
+              <li>Strengthen institutional capacity through guidance and training.</li>
+            </ul>
           </div>
-          <div class="notice-item">
-            <div class="notice-date">Timelines</div>
-            <div class="notice-content">Standard review timelines and expedited criteria based on risk level.</div>
-          </div>
-          <div class="notice-item">
-            <div class="notice-date">Reporting</div>
-            <div class="notice-content">Adverse events, protocol deviations, and annual continuing review submissions.</div>
+          <div class="panel">
+            <h2 class="section-title" id="submission-title" style="margin-bottom:10px;">Submission Checklist</h2>
+            <ul class="card-text" style="line-height:1.8;">
+              <li>Protocol + objectives + methodology</li>
+              <li>Consent/assent forms; participant materials</li>
+              <li>Data plan (privacy, storage, sharing)</li>
+              <li>Safety reporting and monitoring approach</li>
+              <li>Investigator CVs and roles</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="workflow" role="region" aria-labelledby="workflow-title">
+    <section class="section" style="background:#f8f9fa;" id="workflow" role="region" aria-labelledby="workflow-title">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title" id="workflow-title">Workflow Diagram (Text Summary)</h2>
+          <h2 class="section-title" id="workflow-title">Workflow (Text Summary)</h2>
         </div>
-        <div class="card-grid" style="grid-template-columns:1fr;">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Stepwise Flow</h3>
-              <p class="card-text">1) Submission → 2) Administrative check → 3) Reviewer assignment → 4) Primary review → 5) Committee decision → 6) Communication of outcome → 7) Continuing review/monitoring.</p>
-            </div>
-          </article>
+        <div class="stepper">
+          <div class="step">
+            <strong>1) Submission</strong>
+            <p class="card-text">Protocol and required documents submitted to IRC.</p>
+          </div>
+          <div class="step">
+            <strong>2) Admin Check</strong>
+            <p class="card-text">Completeness review; eligibility for expedited vs full.</p>
+          </div>
+          <div class="step">
+            <strong>3) Reviewer Assignment</strong>
+            <p class="card-text">Assign primary/secondary reviewers based on expertise.</p>
+          </div>
+          <div class="step">
+            <strong>4) Review</strong>
+            <p class="card-text">Risk-benefit, consent, data protection, vulnerable groups.</p>
+          </div>
+          <div class="step">
+            <strong>5) Decision</strong>
+            <p class="card-text">Approve / conditions / modify / reject; minutes recorded.</p>
+          </div>
+          <div class="step">
+            <strong>6) Communicate</strong>
+            <p class="card-text">Outcome letter and required actions to PI.</p>
+          </div>
+          <div class="step">
+            <strong>7) Continuing Review</strong>
+            <p class="card-text">Renewals, amendments, safety reports, site monitoring.</p>
+          </div>
         </div>
       </div>
     </section>

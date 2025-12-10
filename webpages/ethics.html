@@ -11,6 +11,46 @@
   <link rel="stylesheet" href="print.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <script src="c1.js" defer></script>
+  <style>
+    .principles-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .principle-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .responsibility-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .resp-item {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .links-strip {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .link-chip {
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      border: 1px solid var(--color-border);
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,69 +79,58 @@
   </header>
 
   <main id="main-content" role="main" aria-label="Ethics overview">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+    <section class="section" aria-label="Core principles">
       <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Ethical Framework & Principles</h2>
-          <p>NHRC upholds respect, beneficence, justice, and transparency across all health research in Nepal.</p>
-          <a href="#principles" class="btn-primary">View Principles</a>
+        <div class="section-header" style="margin-bottom:14px;">
+          <h2 class="section-title" id="principles-title">Ethical Framework</h2>
+          <a href="ethical-review-process.html" class="view-all-btn">Review Process</a>
+        </div>
+        <div class="principles-row">
+          <div class="principle-card">
+            <h3 class="card-title">Respect for Persons</h3>
+            <p class="card-text">Dignity, autonomy, and informed consent at every interaction.</p>
+          </div>
+          <div class="principle-card">
+            <h3 class="card-title">Beneficence</h3>
+            <p class="card-text">Maximize benefit, minimize risk, and safeguard participant welfare.</p>
+          </div>
+          <div class="principle-card">
+            <h3 class="card-title">Justice</h3>
+            <p class="card-text">Fair selection and equitable distribution of research benefits.</p>
+          </div>
+          <div class="principle-card">
+            <h3 class="card-title">Accountability</h3>
+            <p class="card-text">Transparent governance, COI management, and ongoing compliance.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="principles" role="region" aria-labelledby="principles-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="principles-title">Core Principles</h2>
-          <a href="ethical-review-process.html" class="view-all-btn">See Review Steps</a>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Respect for Persons</h3>
-              <p class="card-text">Prioritize dignity, autonomy, and informed consent for all participants.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Beneficence</h3>
-              <p class="card-text">Maximize potential benefits and minimize foreseeable risks in study design and conduct.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Justice</h3>
-              <p class="card-text">Ensure fair selection of participants and equitable access to research benefits.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Accountability</h3>
-              <p class="card-text">Maintain transparent governance, conflict-of-interest management, and compliance reporting.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="background:#f8f9fa;" role="region" aria-labelledby="responsibility-title">
+    <section class="section" style="background:#f8f9fa;" aria-label="Responsibility and governance">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" id="responsibility-title">Organizational Responsibility</h2>
         </div>
-        <div class="noticeboard-list">
-          <div class="notice-item">
-            <div class="notice-date">Governance</div>
-            <div class="notice-content">ERB and IRC oversee ethical compliance, protocol review, and continuing oversight.</div>
+        <div class="responsibility-list">
+          <div class="resp-item">
+            <h3 class="card-title">Governance</h3>
+            <p class="card-text">ERB/IRC oversight, protocol review, conditions, and continuing review.</p>
           </div>
-          <div class="notice-item">
-            <div class="notice-date">Capacity</div>
-            <div class="notice-content">Training programs on ethics, consent, data protection, and community engagement.</div>
+          <div class="resp-item">
+            <h3 class="card-title">Capacity</h3>
+            <p class="card-text">Training on consent, data protection, safety reporting, community engagement.</p>
           </div>
-          <div class="notice-item">
-            <div class="notice-date">Transparency</div>
-            <div class="notice-content">Clear communication of review outcomes, conditions, and reporting obligations.</div>
+          <div class="resp-item">
+            <h3 class="card-title">Transparency</h3>
+            <p class="card-text">Clear communication of decisions, amendments, and reporting obligations.</p>
           </div>
+        </div>
+        <div class="links-strip" aria-label="Quick links">
+          <a class="link-chip" href="erb.html">Ethical Review Board</a>
+          <a class="link-chip" href="irc.html">Institutional Review Committee</a>
+          <a class="link-chip" href="ethical-review-process.html">Ethical Review Process</a>
+          <a class="link-chip" href="irerp.html">IRERP System</a>
+          <a class="link-chip" href="faq.html">Ethics FAQ</a>
         </div>
       </div>
     </section>

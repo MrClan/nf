@@ -11,6 +11,40 @@
   <link rel="stylesheet" href="print.css">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <script src="c1.js" defer></script>
+  <style>
+    .callout {
+      background: var(--color-body-bg-light-blue, #eef4ff);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      margin: 16px 0;
+    }
+    .functions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .function-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .timeline-item {
+      border-left: 3px solid var(--color-primary);
+      padding: 10px 12px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+  </style>
 </head>
 
 <body>
@@ -39,12 +73,10 @@
   </header>
 
   <main id="main-content" role="main" aria-label="Ethical Review Board overview">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+    <section class="section" aria-label="ERB recognition">
       <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Ethical Review Board (ERB)</h2>
-          <p>FERCAP recognized since 2019; safeguarding participant rights, safety, and scientific integrity.</p>
-          <a href="#functions" class="btn-primary">See Functions</a>
+        <div class="callout">
+          <strong>FERCAP Recognition (since 2019):</strong> NHRC ERB is recognized for meeting international standards in human subject protection and ethics oversight.
         </div>
       </div>
     </section>
@@ -52,28 +84,21 @@
     <section class="section" id="overview" role="region" aria-labelledby="overview-title">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title" id="overview-title">Overview & Recognition</h2>
-          <a href="#functions" class="view-all-btn">Functions</a>
+          <h2 class="section-title" id="overview-title">Overview</h2>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Mandate</h3>
-              <p class="card-text">Provide ethical oversight for health research proposals reviewed by NHRC.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">FERCAP Recognition</h3>
-              <p class="card-text">Recognized by FERCAP since 2019 for adhering to international standards of human subject protection.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-content">
-              <h3 class="card-title">Scope</h3>
-              <p class="card-text">Clinical trials, public health studies, observational research, and data-driven projects with human participants.</p>
-            </div>
-          </article>
+        <div class="functions-grid">
+          <div class="function-card">
+            <h3 class="card-title">Mandate</h3>
+            <p class="card-text">Ethical oversight for protocols reviewed by NHRC; protect rights, safety, and data integrity.</p>
+          </div>
+          <div class="function-card">
+            <h3 class="card-title">Scope</h3>
+            <p class="card-text">Clinical trials, public health studies, observational designs, data-driven research with human participants.</p>
+          </div>
+          <div class="function-card">
+            <h3 class="card-title">Standards</h3>
+            <p class="card-text">Aligned to international ethics norms and national regulations; continuous quality improvement.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -81,20 +106,42 @@
     <section class="section" id="functions" style="background:#f8f9fa;" role="region" aria-labelledby="functions-title">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title" id="functions-title">Functions</h2>
+          <h2 class="section-title" id="functions-title">Key Functions</h2>
         </div>
-        <div class="noticeboard-list">
-          <div class="notice-item">
-            <div class="notice-date">Review</div>
-            <div class="notice-content">Protocol review, risk-benefit assessment, consent process evaluation.</div>
+        <div class="functions-grid">
+          <div class="function-card">
+            <h3 class="card-title">Review</h3>
+            <p class="card-text">Risk-benefit assessment, consent evaluation, protections for vulnerable groups.</p>
           </div>
-          <div class="notice-item">
-            <div class="notice-date">Oversight</div>
-            <div class="notice-content">Continuing review, amendments, safety reporting, data monitoring triggers.</div>
+          <div class="function-card">
+            <h3 class="card-title">Oversight</h3>
+            <p class="card-text">Continuing review, amendments, safety reporting, data monitoring triggers.</p>
           </div>
-          <div class="notice-item">
-            <div class="notice-date">Guidance</div>
-            <div class="notice-content">Ethics guidance to investigators and institutions; training and capacity building.</div>
+          <div class="function-card">
+            <h3 class="card-title">Guidance</h3>
+            <p class="card-text">Support investigators with ethics queries, templates, and training opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" role="region" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="timeline-title">Recognition Timeline</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>2019</strong>
+            <p class="card-text">FERCAP recognition awarded for human subject protection standards.</p>
+          </div>
+          <div class="timeline-item">
+            <strong>2021</strong>
+            <p class="card-text">Process updates for digital submissions and tracking.</p>
+          </div>
+          <div class="timeline-item">
+            <strong>2024</strong>
+            <p class="card-text">Expanded continuing review guidance and safety reporting refinements.</p>
           </div>
         </div>
       </div>

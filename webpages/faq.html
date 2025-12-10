@@ -15,6 +15,9 @@
     .faq-item { border-bottom: 1px solid var(--color-border); padding: 12px 0; }
     .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; }
     .faq-answer { display: none; margin-top: 8px; color: var(--color-text-muted); }
+    .faq-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+    .faq-toolbar input { flex: 1; padding: 10px; border: 1px solid var(--color-border); border-radius: 10px; }
+    .pill { padding: 8px 12px; border-radius: 16px; background: var(--color-body-bg-light-blue, #eef4ff); border: 1px solid var(--color-border); font-size: 14px; }
   </style>
 </head>
 
@@ -44,12 +47,14 @@
   </header>
 
   <main id="main-content" role="main" aria-label="Ethics FAQ">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+    <section class="section" aria-label="FAQ filters" style="padding-top:28px;">
       <div class="container">
-        <div class="hero-content">
-          <h2 id="hero-title">Ethics FAQ</h2>
-          <p>Answers to common questions on review timelines, consent, data protection, and reporting.</p>
-          <a href="#faq-list" class="btn-primary">Read FAQs</a>
+        <div class="faq-toolbar">
+          <input type="search" aria-label="Search FAQ" placeholder="Search FAQ...">
+          <span class="pill">Timelines</span>
+          <span class="pill">Consent</span>
+          <span class="pill">Data</span>
+          <span class="pill">Reporting</span>
         </div>
       </div>
     </section>
@@ -93,6 +98,13 @@
             <span>Do community studies require special considerations?</span><span aria-hidden="true">▾</span>
           </div>
           <div class="faq-answer">Engage community leaders, use culturally appropriate consent, and address local risk/benefit and feedback mechanisms.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            <span>How do I request expedited review?</span><span aria-hidden="true">▾</span>
+          </div>
+          <div class="faq-answer">Submit the protocol with justification for minimal risk; eligibility is confirmed during admin check.</div>
         </div>
       </div>
     </section>
