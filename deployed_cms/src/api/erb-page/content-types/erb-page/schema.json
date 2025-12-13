@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "erb_page_single",
+  "info": {
+    "singularName": "erb-page",
+    "pluralName": "erb-pages",
+    "displayName": "ERB Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "callout": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "functions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "timeline": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timeline.timeline-item"
+    }
+  }
+}
+

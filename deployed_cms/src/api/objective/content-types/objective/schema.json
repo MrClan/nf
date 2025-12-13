@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "objectives_single",
+  "info": {
+    "singularName": "objective",
+    "pluralName": "objectives",
+    "displayName": "Objectives"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "hero": {
+      "type": "component",
+      "component": "sections.hero-section"
+    },
+    "objectives": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "relatedDocuments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "documents.document-block"
+    }
+  }
+}
+

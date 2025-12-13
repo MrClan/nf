@@ -11,9 +11,13 @@ python3 -m http.server 5000
 http://110.44.118.219:5000/
 
 
+docker run -d \
+  --name nhrc_cms \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  postgres
 
-
-
+docker exec -it nhrc_cms psql -U postgres
 
 
 I'm starting on a new web application project to be built with NextJs, StrapiJs, Postgres - everything neatly dockerized.

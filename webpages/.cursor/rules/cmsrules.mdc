@@ -1,0 +1,147 @@
+---
+alwaysApply: true
+---
+You are acting as a senior Strapi v5 architect. In the current workspace there is a folder named “cms” which contains a fresh Strapi v5 project. In the parent folder there are multiple newly generated HTML pages that represent the public-facing UI for our organization website. Your task is to analyze ALL HTML files in the current folder (not just one), understand their structure, identify repeated UI patterns, detect reusable components, and create a complete, clean, production-grade content architecture inside the “cms” folder.
+
+Follow these rules:
+
+========================================
+     GLOBAL RULES
+========================================
+1. You MUST read and analyze ALL HTML files in the workspace (home, objectives, activities, news list, news article, members page, milestones, digital library, ethics, publications, research areas, etc.).
+
+2. For EVERY HTML page, create properly structured Strapi v5 content types that match:
+   - text fields
+   - rich text sections
+   - hero sections
+   - card grids
+   - timelines
+   - images / galleries
+   - categories / tags
+   - metadata
+   - slugs
+   - SEO fields
+   - relations between content types
+
+3. Identify repeated UI blocks across pages.
+   Convert repeated patterns into Strapi COMPONENTS.
+   Examples:
+   - "hero section" (image + title + subtitle)
+   - "two-column text and image"
+   - "card with title, description, image"
+   - "member card"
+   - "timeline entry"
+   - "news preview card"
+   - "downloadable document block"
+
+4. Use COMPONENTS aggressively to reduce duplication.
+
+5. For pages that represent collections (e.g., Members, News, Publications), create COLLECTION TYPES.
+
+6. For pages that represent unique one-off pages (About Us, Objectives, Activities), create SINGLE TYPES.
+
+7. Implement correct field types:
+   - string → single_line text
+   - long text → richtext
+   - date fields
+   - media fields → images or files
+   - repeatable components
+   - dynamic zones where useful
+
+8. Add “slug” to all items that will be accessible via URL (ex: news, members, publications).
+
+9. Ensure schema is fully Strapi v5 compatible:
+   - Files must go into `cms/src/api/...`
+   - Components into `cms/src/components/...`
+   - Content types must include `schema.json`
+   - Each schema uses v5 property names and conventions.
+
+10. Ensure all relations match the real-site content dependencies:
+   Examples:
+   - NewsArticle belongs to NewsCategory
+   - Member belongs to MemberCategory
+   - Publication belongs to PublicationCategory
+   - Timeline items belong to MilestonesPage
+
+11. Do NOT generate placeholder HTML. Only generate Strapi schema files.
+
+12. For each content type, generate:
+   - schema.json
+   - content-types folder structure
+   Cursor should create/update these files directly in `cms/src/api/*`.
+
+13. For components, generate:
+   - schema.json files inside `cms/src/components/...`
+
+14. Every text field, but not urls should be i18n supported. The 2 initial locales are EN-US and NE-NP.
+
+========================================
+     PAGE-SPECIFIC GUIDANCE
+========================================
+
+OBJECTIVES PAGE:
+- Single type
+- Fields: title, hero image, objectives list (repeatable richtext or short descriptions), related documents.
+
+NEWS LISTING PAGE:
+- Collection type: NewsArticle
+- Components: NewsCard, TrendingWidget
+- Fields: headline, excerpt, body (rich text), hero image, gallery, published date, category (relation), trending boolean.
+
+NEWS DETAIL PAGE:
+- Uses NewsArticle fields
+- Include dynamic zone for body so content editors can add flexibly.
+
+ACTIVITIES PAGE:
+- Collection type: Activity
+- Fields: title, description, date range, gallery, status.
+
+MEMBERS PAGE:
+- Collection type: Member
+- Fields: photo, fullName, position, joiningDate, yearsOfService, shortBio (max ~240 chars), category relation.
+- Create MemberCategory as separate collection type.
+
+MILESTONES PAGE:
+- Single type with repeatable component: TimelineItem
+- TimelineItem fields: year, title, description, image, order.
+
+DIGITAL LIBRARY / PUBLICATIONS:
+- Collection types:
+  - Publication
+  - PublicationCategory
+- Fields: title, abstract, file download, cover image, authors, year, tags.
+
+RESEARCH AREAS:
+- Collection type: ResearchArea
+- Fields: title, banner image, description, linked publications.
+
+ETHICS SECTION:
+- Multiple single types or one dynamic type depending on HTML structure.
+- Example content types: Ethics, Review Process, FAQ, ERC Boards
+
+========================================
+     WHAT TO DELIVER
+========================================
+
+1. For each identified page, create:
+   - A new Strapi content type folder under: `cms/src/api/<content-type-name>/content-types/<name>/schema.json`
+
+2. For each repeated block:
+   - Create components under: `cms/src/components/<group>/<component>.json`
+
+3. Ensure component names are clearly grouped:
+   Example:
+     cms/src/components/sections/hero-section.json
+     cms/src/components/cards/news-card.json
+     cms/src/components/timeline/timeline-item.json
+     cms/src/components/members/member-card.json
+
+4. Preserve modularity and cleanliness.
+
+5. Generate clear and complete schema files with correct Strapi v5 syntax.
+
+========================================
+     EXECUTE
+========================================
+
+Now proceed and generate all Strapi v5 content types and components inside the /cms folder based on all HTML pages in this workspace. Ensure the schema matches the actual structures used in the HTML. 

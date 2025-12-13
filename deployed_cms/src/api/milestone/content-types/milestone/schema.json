@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "milestones_single",
+  "info": {
+    "singularName": "milestone",
+    "pluralName": "milestones",
+    "displayName": "Milestones"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "timeline": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timeline.timeline-item"
+    }
+  }
+}
+

@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "irerp_page_single",
+  "info": {
+    "singularName": "irerp-page",
+    "pluralName": "irerp-pages",
+    "displayName": "IRERP Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.link-card"
+    },
+    "accessSupport": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
+
